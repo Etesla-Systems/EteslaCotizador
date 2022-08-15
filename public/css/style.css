@@ -1,0 +1,143 @@
+@font-face {
+    font-family: 'Inter';
+    src: url(font/Inter-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Inter Semi';
+    src: url(font/Inter-SemiBold.ttf);
+}
+
+:root {
+    --green-p: #019267;
+    --green-s: #00C897;
+    --yellow-p: #FFD365;
+    --yellow-s: #FDFFA9;
+    --gray: #536162;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.navbar-brand {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    font-size: 1.2rem;
+    background-color: var(--green-p);
+}
+
+.sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    padding: 3rem 0 0;
+    box-shadow: inset -1px 0 0 rgb(0 0 0 / 10%);
+    background-color: var(--green-s);
+}
+
+.btn-toggle {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    font-weight: 600;
+    color: #FFF;
+    background-color: transparent;
+    border: 0;
+}
+
+.btn-toggle:hover {
+    color: var(--yellow-p);
+}
+
+.btn-toggle-nav a {
+    display: inline-flex;
+    padding: 0.1875rem 0.5rem;
+    margin-top: 0.125rem;
+    margin-left: 1.25rem;
+    text-decoration: none;
+    font-size: 1 rem;
+    color: #FFF;
+}
+
+.icon-sidebar {
+    color: #FFF;
+    padding: 0 0.5rem;
+}
+
+.icon-sidebar:hover {
+    color: var(--yellow-p);
+}
+
+.link-dark {
+    color: #212529;
+}
+
+.rounded {
+    border-radius: 0.25rem!important;
+}
+
+.profile {
+    position: absolute;
+    bottom: 0;
+    padding: 2rem 2rem;
+}
+
+.user-profile{
+    font-family: 'Inter Semi', sans-serif;
+}
+
+.simple-text,
+td,
+th,
+.form-label,
+.form-check-label {
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+.form-control {
+    font-size: 1rem;
+    color: #000;
+}
+
+.subtitle-window{
+    color: var(--gray);
+    font-family: 'Inter Semi', sans-serif;
+}
+
+.btn-action {
+    background-color: var(--yellow-p);
+    font-family: 'Inter Semi', sans-serif;
+    font-size: 0.9rem;
+}
+
+.page-link {
+    color: #000;
+    font-size: 0.9rem;
+}
+
+.card-section{
+    box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.card-section-alt{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.form-check-input:checked {
+    background-color: var(--yellow-p);
+    border-color: var(--yellow-p);
+}
