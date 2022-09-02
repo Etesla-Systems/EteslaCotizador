@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PersonasController;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\OficinaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,22 +17,33 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
-Route::get('/vendedor', function () {
-    return view('vendedor.inicio');
-});
-
-Route::get('/clientes', function () {
-    return view('catalogos.clientes');
-});
-
-Route::get('/clientes/editar', function () {
+/*
+ * Rutas Clientes
+ */
+Route::get('/clientes', [ClienteController::class, 'index']);
+Route::get('/clientes/nuevo', function (){
     return view('catalogos.editarcliente');
-});
+})->name('nuevocliente');
+Route::post('/personas/guardar', [PersonasController::class, 'guardar'])->name('guardarpersona');
 
+/*
+ * Rutas Oficina
+ */
+Route::get('/oficinas', [OficinaController::class, 'index']);
+Route::post('/oficinas/guardar', [OficinaController::class, 'guardar'])->name('guardaroficina');
 
+/*
+ * Rutas Rol
+ */
+
+/*
+ * Rutas Procesos
+ */
 Route::get('/bajatension', function () {
     return view('vendedor.bajatension');
 });
+
+

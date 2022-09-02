@@ -1,9 +1,9 @@
 @extends('layouts.app')
-@section('window', 'Clientes')
+@section('window', 'Personas')
 @section('current-content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h3 class="subtitle-window">Clientes</h3>
-        <a href="{{ route('nuevocliente') }}" class="btn btn-action border-bottom"><i class="bx bx-plus-circle"></i> Nuevo</a>
+        <h3 class="subtitle-window">Personas</h3>
+        <a href="{{ url("/personas/nuevo") }}" class="btn btn-action border-bottom"><i class="bx bx-plus-circle"></i> Nuevo</a>
     </div>
     <div class="table-responsive card-section p-3">
         <table class="table table-sm">
