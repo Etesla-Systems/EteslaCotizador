@@ -30,12 +30,13 @@ class PersonasController extends Controller
         }
     }
 
-//    public function editar($idPersona) {
-//        try {
-//            $persona = Personas::find($idPersona);
-//
-//        } catch (Throwable $e) {
-//            return redirect()->action('PersonasController@index')->with('error', $e->getMessage());
-//        }
-//    }
+    public function editar($idPersona)
+    {
+        try {
+            $persona = Personas::findOrFail($idPersona);
+
+        } catch (Throwable $e) {
+            return redirect()->action('PersonasController@index')->with('error', $e->getMessage());
+        }
+    }
 }

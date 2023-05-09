@@ -47,25 +47,25 @@
                     </a>
                     <ul class="submenu collapse">
                         <li>
-                            <a class="nav_link" href="{{ url("clientes") }}">
+                            <a class="nav_link" href="{{ url('clientes') }}">
                                 <i class='bx bx-face nav_icon'></i>
                                 <span class="nav_name">Clientes</span>
                             </a>
                         </li>
                         <li>
-                            <a class="nav_link" href="{{ url("oficinas") }}">
+                            <a class="nav_link" href="{{ url('oficinas') }}">
                                 <i class='bx bx-buildings nav_icon'></i>
                                 <span class="nav_name">Oficinas</span>
                             </a>
                         </li>
                         <li>
-                            <a class="nav_link" href="#">
+                            <a class="nav_link" href="{{ url('tarifas') }}">
                                 <i class='bx bx-coin nav_icon'></i>
                                 <span class="nav_name">Tarifas</span>
                             </a>
                         </li>
                         <li>
-                            <a class="nav_link" href="#">
+                            <a class="nav_link" href="{{ url("roles") }}">
                                 <i class='bx bx-group nav_icon'></i>
                                 <span class="nav_name">Roles</span>
                             </a>
