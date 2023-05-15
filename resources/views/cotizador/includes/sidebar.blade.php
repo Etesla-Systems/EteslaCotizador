@@ -33,7 +33,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="nav_link" href="#">
+                            <a class="nav_link" href="{{ url('individual') }}">
                                 <i class='bx bx-smile nav_icon'></i>
                                 <span class="nav_name">Individual</span>
                             </a>

@@ -17,7 +17,7 @@ use App\Http\Controllers\OficinaController;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('cotizador.layout.dashboard');
 });
 
 /*
@@ -43,7 +43,11 @@ Route::post('/oficinas/guardar', [OficinaController::class, 'guardar'])->name('g
  * Rutas Procesos
  */
 Route::get('/bajatension', function () {
-    return view('vendedor.bajatension');
+    return view('cotizador.pages.vendedor.bajatension');
+});
+
+Route::get('/individual', function () {
+    return view('cotizador.pages.vendedor.individual');
 });
 
 

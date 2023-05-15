@@ -9,8 +9,8 @@
 }
 
 :root {
-    --green-p: #019267;
-    --green-s: #00C897;
+    --green-p: #c6d109;
+    --green-s: #22a331;
     --yellow-p: #FFD365;
     --yellow-s: #FDFFA9;
     --gray: #536162;
@@ -156,8 +156,8 @@ th,
 }
 
 .form-check-input:checked {
-    background-color: var(--yellow-p);
-    border-color: var(--yellow-p);
+    background-color: var(--blue-s);
+    border-color: var(--blue-s);
 }
 
 /* 21/08/22 */
@@ -238,6 +238,16 @@ a{
     margin-bottom: 1.5rem;
     transition: .3s
 }
+.color_boton_cot
+{
+    background: #22a331; /* color de fondo */
+    color: whitesmoke; /* color de fuente */
+    border: solid #22a331; /* tamaño y color de borde */
+    width:100px;
+    height:40px;
+    border-radius: 5px; /* redondear bordes */
+    position: relative;
+}
 .nav_link:hover{
     color: var(--white-gray)
 }
@@ -314,3 +324,18 @@ a{
         padding-left: calc(var(--side-width) + 188px)
     }
 }
+
+.table-hover
+{
+    text-align: center;
+}
+
+.btn-estandar
+{
+    width:150px;
+    height:40px;
+}
+
+
+
+
