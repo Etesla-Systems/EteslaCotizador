@@ -7,31 +7,31 @@
     @include('layouts.messages')
     <div class="container-fluid card-section">
         <div class="row pb-3">
-            <form method="POST" class="row g-3" action="{{ route('guardarpersona') }}">
+            <form method="POST" class="row g-3" action="">
                 @csrf
                 <div class="col-md-4">
                     <label for="txtNombre" class="form-label">Nombre:</label>
-                    <input type="text" class="form-control" id="txtNombre" name="nombre">
+                    <input type="text" class="form-control" id="txtNombre" name="">
                 </div>
                 <div class="col-md-4">
                     <label for="txtPaterno" class="form-label">Apellido Paterno:</label>
-                    <input type="text" class="form-control" id="txtPaterno" name="paterno">
+                    <input type="text" class="form-control" id="txtPaterno" name="">
                 </div>
                 <div class="col-md-4">
                     <label for="txtMaterno" class="form-label">Apellido Materno:</label>
-                    <input type="text" class="form-control" id="txtMaterno" name="materno">
+                    <input type="text" class="form-control" id="txtMaterno" name="">
                 </div>
                 <div class="col-md-4">
                     <label for="txtTelefono" class="form-label">Tel&eacute;fono:</label>
-                    <input type="tel" class="form-control" id="txtTelefono" name="telefono">
+                    <input type="tel" class="form-control" id="txtTelefono" name="">
                 </div>
                 <div class="col-md-4">
                     <label for="txtMovil" class="form-label">Tel&eacute;fono Celular:</label>
-                    <input type="tel" class="form-control" id="txtMovil" name="movil">
+                    <input type="tel" class="form-control" id="txtMovil" name="">
                 </div>
                 <div class="col-md-4">
                     <label for="txtEmail" class="form-label">Email:</label>
-                    <input type="email" class="form-control" id="txtEmail" name="email">
+                    <input type="email" class="form-control" id="txtEmail" name="">
                 </div>
                 <div class="d-flex justify-content-end col-md-12">
                     <button type="submit" class="btn btn-action border-bottom mx-1"><i class="bx bx-save"></i> Guardar</button>

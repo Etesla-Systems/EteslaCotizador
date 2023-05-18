@@ -9,11 +9,11 @@ use Throwable;
 class PersonasController extends Controller
 {
     public function index() {
-        $personas = Personas::all();
-        return view('catalogos.personas', ['personas' => $personas]);
+
+        return view('catalogos.personas');
     }
 
-    public function guardar(Request $request) {
+    /*public function guardar(Request $request) {
         try {
             $persona = new Personas();
             $persona->vNombrePersona = $request->nombre;
@@ -28,15 +28,17 @@ class PersonasController extends Controller
             report($e);
             return redirect('/personas/nuevo')->with('error', $e->getMessage());
         }
-    }
+    }*/
 
-    public function editar($idPersona)
+    public function editar()
     {
-        try {
+        /*try {
             $persona = Personas::findOrFail($idPersona);
 
         } catch (Throwable $e) {
             return redirect()->action('PersonasController@index')->with('error', $e->getMessage());
-        }
+        }*/
+
+        return view('catalogos.editarcliente');
     }
 }

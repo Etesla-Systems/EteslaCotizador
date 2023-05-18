@@ -33,7 +33,7 @@ Route::get('/clientes/nuevo', function (){
 
 Route::post('/personas/guardar', [PersonasController::class, 'guardar'])->name('guardarpersona');
 
-Route::get('/clientes/editar/{idPersona}', [PersonasController::class, 'editar']);
+Route::get('/clientes/editar', [PersonasController::class, 'editar']);
 
 /*
  * Rutas Oficina

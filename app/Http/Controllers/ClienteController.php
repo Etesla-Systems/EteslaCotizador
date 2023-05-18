@@ -8,7 +8,7 @@ use App\Personas;
 class ClienteController extends Controller
 {
     public function index() {
-        $personas = Personas::all();
-        return view('catalogos.clientes', ['personas' => $personas]);
+        //$personas = Personas::all();
+        return view('catalogos.clientes');
     }
 }

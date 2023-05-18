@@ -134,7 +134,7 @@ th,
 }
 
 .btn-back {
-    background-color: var(--white-gray);
+    background-color: #082567;
     font-family: 'Inter Semi', sans-serif;
     font-size: 0.9rem;
 }
@@ -156,8 +156,8 @@ th,
 }
 
 .form-check-input:checked {
-    background-color: var(--blue-s);
-    border-color: var(--blue-s);
+    background-color: #7ab317;
+    border-color: #7ab317;
 }
 
 /* 21/08/22 */
@@ -174,7 +174,7 @@ a{
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    background-color: var(--blue-s);
+    background-color: 	#082567;
     z-index: var(--z-fixed);
     transition: .5s
 }
@@ -202,7 +202,7 @@ a{
     left: -30%;
     width: var(--side-width);
     height: 100vh;
-    background-color: var(--blue-p);
+    background-color: #7ab317;
     padding: .5rem 1rem 0 0;
     transition: .5s;
     z-index: var(--z-fixed)
@@ -226,7 +226,7 @@ a{
 }
 .nav_logo-icon{
     font-size: 1.25rem;
-    color: var(--white-gray)
+    color: #EFEFEF;
 }
 .nav_logo-name{
     color: var(--white-gray);
@@ -234,22 +234,13 @@ a{
 }
 .nav_link{
     position: relative;
-    color: var(--first-color-light);
+    color: #EFEFEF;
     margin-bottom: 1.5rem;
     transition: .3s
 }
-.color_boton_cot
-{
-    background: #22a331; /* color de fondo */
-    color: whitesmoke; /* color de fuente */
-    border: solid #22a331; /* tamaño y color de borde */
-    width:100px;
-    height:40px;
-    border-radius: 5px; /* redondear bordes */
-    position: relative;
-}
+
 .nav_link:hover{
-    color: var(--white-gray)
+    color: #EFEFEF;
 }
 .nav_icon{
     font-size: 1.25rem
@@ -261,7 +252,7 @@ a{
     padding-left: calc(var(--side-width) + 1rem)
 }
 .active{
-    color: var(--white-gray)
+    color: #0a6789;
 }
 .active::before{
     content: '';
@@ -269,7 +260,7 @@ a{
     left: 0;
     width: 2px;
     height: 32px;
-    background-color: var(--white-gray)
+    background-color: #EFEFEF;
 }
 .height-100{
     height:100vh
@@ -330,11 +321,98 @@ a{
     text-align: center;
 }
 
+.tabla-centrada
+{
+    text-align: center;
+}
+
 .btn-estandar
 {
     width:150px;
     height:40px;
 }
+
+.btn-azul2
+{
+    background-color: #4474C2;
+    color: #EFEFEF;
+}
+
+.btn-verde
+{
+    background-color: #2F7F28;
+    color: #EFEFEF;
+}
+
+.btn-rojo
+{
+    background-color: #BF2D0F;
+    color: #EFEFEF;
+}
+
+.btn-gris
+{
+    background-color: #343E36;
+    color: #EFEFEF;
+}
+
+.btn-nav-user
+{
+    color: #EFEFEF;
+    border-radius: 8px;
+    background-color: #7ab317;
+    justify-content: center;
+}
+.bxs-user
+{
+    font-size: 24px;
+}
+
+.bx-dollar
+{
+    font-size: 23px;
+}
+
+.uil-user-plus
+{
+    font-size: 19px;
+}
+
+.uil-pen
+{
+    font-size: 17px;
+}
+
+.uil-trash-alt
+{
+    font-size: 17px;
+}
+
+.uil-cog
+{
+    font-size: 23px;
+}
+
+.uil-invoice
+{
+    font-size: 20px;
+}
+
+.pequeña{
+    width: 120px;
+    height: 42px;
+}
+
+.celda-azul
+{
+    background-color:  #4474C2 ;
+}
+
+.font-white
+{
+    color: #EFEFEF;
+}
+
 
 
 

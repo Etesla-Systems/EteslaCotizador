@@ -4,13 +4,13 @@
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <a href="#" class="nav_logo nav-link">
-                        <i class='bx bx-store nav_logo-icon'></i>
-                        <span class="nav_logo-name">Etesla</span>
+                        <i class='bx bx-dollar'></i>
+                        <span class="nav_logo-name"><strong>COTIZADOR</strong></span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav_link active">
-                        <i class="bx bx-home nav-icon"></i>
+                        <i class='bx bxs-home'></i>
                         <span class="nav_name">Inicio</span>
                     </a>
                 </li>
