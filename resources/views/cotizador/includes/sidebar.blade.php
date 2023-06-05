@@ -9,7 +9,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav_link active">
+                    <a href="{{ url('/') }}" class="nav_link active">
                         <i class='bx bxs-home'></i>
                         <span class="nav_name">Inicio</span>
                     </a>
@@ -104,6 +104,6 @@
                 </li>
             </ul>
         </div>
-        <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Cerrar Sesi&oacute;n</span> </a>
+        <a href="{{route('login')}}" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Cerrar Sesi&oacute;n</span> </a>
     </nav>
 </div>

@@ -1,8 +1,7 @@
 @extends('cotizador.includes.app')
 @section('window', 'Baja Tension')
 @section('current-content')
-    <div
-        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h3 class="subtitle-window">Baja tensi&oacute;n</h3>
     </div>
 
@@ -99,8 +98,8 @@
                         </div>
                     </div>
                     <div class="row"> <!-- Div de botón "Generar PDF de combinaciones predeterminadas" -->
-                        <div class="col-md-12 d-flex justify-content-end mt-9">
-                            <button class="btn btn-azul2 btn-estandar" type="button" id="button-addon2"><i
+                        <div class="col-md-12 d-flex justify-content-end">
+                            <button class="btn btn-azul2 btn-estandar btn-generar" type="button" id="button-addon2"><i
                                     class="uil uil-import"></i> Generar PDF
                             </button>
                         </div>

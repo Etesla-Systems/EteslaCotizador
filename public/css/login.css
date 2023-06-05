@@ -1,0 +1,123 @@
+@font-face{
+    font-family: "Nobile-medium";
+    src: url(../assets/font/Nobile-Medium.ttf);
+}
+
+@font-face{
+    font-family: "Nobile-bold";
+    src: url(../assets/font/Nobile-Bold.ttf);
+}
+
+@font-face{
+    font-family: "Nobile-regular";
+    src: url(../assets/font/Nobile-Regular.ttf);
+}
+
+.tipo1
+{
+    font-family: Nobile-medium;
+}
+
+.tipo2
+{
+    font-family: Nobile-regular;
+}
+
+.tipo3
+{
+    font-family: Nobile-bold;
+}
+
+.login
+{
+    width: 100%;
+    min-height: 100vh;
+    background: url("../assets/img/login_2.png") top center;
+    background-size: cover;
+    position: relative;
+    padding: 120px 0;
+    z-index: 3;
+}
+
+.cont
+{
+    content: "";
+    position: absolute;
+    width: 35%;
+    background:  #082567;
+    top: 0;
+    bottom: 0;
+}
+
+.form-check-input:checked
+{
+    background-color: #7ab317;
+    border-color: #7ab317;
+}
+
+.base_color
+{
+    color: #EFEFEF;
+}
+
+.btn-gris
+{
+    background-color: #343E36;
+    color: #EFEFEF;
+}
+
+.btn-azul2
+{
+    background-color: #4474C2;
+    color: #EFEFEF;
+}
+
+.btn-verde
+{
+    background-color: #7ab317;
+    color: #EFEFEF;
+}
+
+.btn-estandar
+{
+    width:150px;
+    height:40px;
+    margin-left: 30%;
+}
+
+
+.centrado
+{
+    margin-top: 23%;
+}
+
+.font_center
+{
+    text-align: center;
+}
+
+.titulo {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.sub
+{
+    font-size: 17px;
+    font-weight: 200;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.pequeña
+{
+    width: 30%;
+    height: 30%;
+    margin-top: 10%;
+    margin-left: 34.5%;
+}
+
+

@@ -222,7 +222,7 @@
             <!-- Inicio div de contención del botón de "Generar" -->
             <div class="col mt-3" id="divbtnGenerarEquipos">
                 <button class="btn btn-azul2 btn-estandar" type="button" id="button-addon2"><i
-                        class="uil uil-import"></i> Generar
+                        class="uil uil-import"></i> Generar PDF
                 </button>
             </div>
             <!-- Fin div de contención del botón de "Generar" -->
