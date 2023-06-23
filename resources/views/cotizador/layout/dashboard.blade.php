@@ -1,10 +1,6 @@
 @extends('cotizador.includes.app')
 @section('window', 'Dashboard')
-<<<<<<< HEAD
 @section('content')
-=======
-@section('current-content')
->>>>>>> 8b0162a57cf7a0fdf3f49f24454852c6a75f4377
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h3 class="subtitle-window">Información</h3>
     </div>
@@ -16,13 +12,8 @@
                 <div class="carousel-item active">
                     <img src="{{asset('assets/img/banner_dollar.png')}}" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-<<<<<<< HEAD
                         <h5>Precio actual: ${{ $precioDolar->precioDolar }} MXN</h5>
                         <p>Última actualización: {{ $precioDolar -> fechaUpdate }}</p>
-=======
-                        <h5>Precio actual:</h5>
-                        <p>Última actualización:</p>
->>>>>>> 8b0162a57cf7a0fdf3f49f24454852c6a75f4377
                     </div>
                 </div>
                 <div class="carousel-item" id="bannerPanel" name="bannerPanel">
@@ -558,7 +549,7 @@
                             </div>
                             <div class="card-body">
                                 <a href="https://www.fronius.com/es-es/spain/energia-solar/instaladores-y-socios/resumen-de-datos-tecnicos?filter=3522"
-                                target="_blank">
+                                   target="_blank">
                                     <img src="{{asset('assets/img/img_qr/QR_Fronius.png')}}" class="qr1" alt="">
                                 </a>
                             </div>
@@ -605,5 +596,3 @@
         <!--Finaliza sección de información adicional-->
     </div>
 @endsection
-
-
