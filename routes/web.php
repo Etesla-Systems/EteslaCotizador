@@ -57,11 +57,6 @@ Route::get('/pdfCreate', 'PDFController@visualizarPDF');
  */
 Route::get('/index', 'UsuarioController@paginaPrincipal');
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b0162a57cf7a0fdf3f49f24454852c6a75f4377
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
