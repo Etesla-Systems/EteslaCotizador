@@ -9,7 +9,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav_link active">
+                    <a href="{{ url('dashboard') }}" class="nav_link active">
                         <i class='bx bxs-home'></i>
                         <span class="nav_name">Inicio</span>
                     </a>
@@ -53,19 +53,19 @@
                             </a>
                         </li>
                         <li>
-                            <a class="nav_link" href="{{ url('oficinas') }}">
+                            <a class="nav_link" href="">
                                 <i class='bx bx-buildings nav_icon'></i>
                                 <span class="nav_name">Oficinas</span>
                             </a>
                         </li>
                         <li>
-                            <a class="nav_link" href="{{ url('tarifas') }}">
+                            <a class="nav_link" href="">
                                 <i class='bx bx-coin nav_icon'></i>
                                 <span class="nav_name">Tarifas</span>
                             </a>
                         </li>
                         <li>
-                            <a class="nav_link" href="{{ url("roles") }}">
+                            <a class="nav_link" href="">
                                 <i class='bx bx-group nav_icon'></i>
                                 <span class="nav_name">Roles</span>
                             </a>
@@ -104,6 +104,6 @@
                 </li>
             </ul>
         </div>
-        <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Cerrar Sesi&oacute;n</span> </a>
+        <a class="nav_link" href="/logout"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Cerrar Sesi&oacute;n</span> </a>
     </nav>
 </div>

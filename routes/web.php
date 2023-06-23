@@ -18,55 +18,46 @@ use App\Http\Controllers\TarifaController;
 |
 */
 
-Route::get('/', function () {
+/* --------------- Usuario --------------- */
+Route::get('/', 'UsuarioController@index');
+Route::post('/', 'UsuarioController@validarUsuario');
+Route::get('/logout', 'UsuarioController@cerrarSesion');
+
+/* --------------- Vendedor --------------- */
+Route::get('/vendedor', 'VendedorController@index');
+Route::get('/clientes', 'VendedorController@clientes');
+Route::get('/editarcliente/{idCliente}', 'VendedorController@ClienteDetails');
+
+/* --------------- Cliente --------------- */
+Route::put('/propuestasByClient/{idCliente?}', 'PropuestasController@getPropuestasByClient');
+Route::put('/consultarClientePorId/{cliente?}', 'ClienteController@consultarClientePorId');
+Route::post('/registrarCliente', 'ClienteController@registrarCliente');
+Route::put('/buscarCliente/{cliente?}','ClienteController@consultarClientePorNombre');
+
+/* --------------- Vista general --------------- */
+Route::get('/dashboard', function () {
     return view('cotizador.layout.dashboard');
 });
 
-/*
- * Rutas Clientes
- */
-Route::get('/clientes', [ClienteController::class, 'index'])->name('clientes');
-
-Route::get('/clientes/nuevo', function (){
-    return view('catalogos.editarcliente');
-})->name('nuevocliente');
-
-Route::post('/personas/guardar', [PersonasController::class, 'guardar'])->name('guardarpersona');
-
-Route::get('/clientes/editar', [PersonasController::class, 'editar']);
-
-/*
- * Rutas Oficina
- */
-Route::get('/oficinas', [OficinaController::class, 'index']);
-
-Route::post('/oficinas/guardar', [OficinaController::class, 'guardar'])->name('guardaroficina');
-
-/*
- * Rutas Rol
- */
-Route::get('/roles', [RolController::class, 'index']);
-
-Route::post('/roles/guardar', [RolController::class, 'guardar'])->name('guardarrol');
-
-/*
- * Rutas Tarifas
- */
-Route::get('/tarifas', [TarifaController::class, 'index']);
-
-Route::get('/tarifas/nuevo', [TarifaController::class, 'nuevo'])->name('nuevatarifa');
-
-Route::post('/tarifas/guardar', [TarifaController::class, 'guardar'])->name('guardartarifa');
-
-/*
- * Rutas Procesos
- */
+/* --------------- Procesos --------------- */
 Route::get('/bajatension', function () {
     return view('cotizador.pages.vendedor.bajatension');
 });
 
-Route::get('/individual', function () {
-    return view('cotizador.pages.vendedor.individual');
-});
+/* --------------- Cotización individual --------------- */
+Route::get('/individual', 'IndividualController@index');
+Route::post('/enviarCotizIndiv','IndividualController@sendSingleQuotation');
+
+/* --------------- PDF --------------- */
+Route::post('/PDFgenerate', 'CotizacionController@generatePDF');
+Route::get('/pdfCreate', 'PDFController@visualizarPDF');
+
+/*
+ * Vistas
+ */
+Route::get('/index', 'UsuarioController@paginaPrincipal');
 
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

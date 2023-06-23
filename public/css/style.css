@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'Inter';
-    src: url(font/Inter-Regular.ttf);
+    src: url(../assets/font/Inter-Regular.ttf);
 }
 
 @font-face {
     font-family: 'Inter Semi';
-    src: url(font/Inter-SemiBold.ttf);
+    src: url(../assets/font/Inter-SemiBold.ttf);
 }
 
 :root {
@@ -363,6 +363,12 @@ a{
     background-color: #7ab317;
     justify-content: center;
 }
+
+.btn-generar
+{
+    margin-top: 12.7%;
+}
+
 .bxs-user
 {
     font-size: 24px;
@@ -403,6 +409,27 @@ a{
     height: 42px;
 }
 
+.mediana
+{
+    width: 300px;
+    height: 200px;
+}
+
+.qr1
+{
+    width: 200px;
+    height: 200px;
+    margin-left: 30%;
+}
+
+.qr2
+{
+    width: 200px;
+    height: 200px;
+    margin-left: 12%;
+    margin-top: 35%;
+}
+
 .celda-azul
 {
     background-color:  #4474C2 ;
@@ -412,6 +439,69 @@ a{
 {
     color: #EFEFEF;
 }
+
+.carousel-caption
+{
+    width: 70%;
+    height: 25%;
+    padding-y: 1.25rem;
+    spacer: 1rem;
+}
+
+.card-estandar1
+{
+    height: 550px;
+    width: 350px;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.card-estandar
+{
+    height: 550px;
+    width: 350px;
+    border-radius: 15px;
+
+}
+
+.inp
+{
+    height: 42px;
+}
+
+.move
+{
+    margin-left: 50%;
+}
+
+.close
+{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    margin: 10px;
+}
+
+/* LodingSpinner */
+.loading-spinner{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(255,255,255,0.8) url("../img/loader.svg") center no-repeat;
+}
+
+body.loading{
+    overflow: hidden;
+}
+
+body.loading .loading-spinner{
+    display: block;
+}
+/* Fin LodingSpinner */
 
 
 

@@ -1,6 +1,6 @@
 @extends('cotizador.includes.app')
 @section('window', 'Individual')
-@section('current-content')
+@section('content')
     <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h3 class="subtitle-window">Individual</h3>
@@ -22,43 +22,43 @@
             <div class="row">
                 <div class="col-md-4">
                     <label class="form-label">Seleccione un panel</label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Elige una opción</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                    <select class="form-select" id="optPaneles" name="optPaneles" onchange="">
+                        <option selected value="">Elige una opción</option>
+                        @foreach($vPaneles as $paneles)
+                            <option value="{{ $paneles->idPanel }}">{{ $paneles->vNombreMaterialFot }}</option>
+                        @endforeach
                     </select>
                     <div class="mt-2">
                         <label class="form-label">Ingrese la cantidad de paneles</label>
-                        <input type="text" class="form-control" id="inputAddress" value="">
+                        <input type="text" class="form-control" id="inpCantPaneles" >
                     </div>
                 </div>
 
                 <div class="col-md-4">
-                    <label class="form-label">Seleccione un inversor</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <label class="mn-1">Seleccione un inversor:</label>
+                    <select class="form-select" id="optInversores" onchange="">
                         <option selected>Elige una opción</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                        @foreach($vInversores as $inversor)
+                            <option title="{{ $inversor->vTipoInversor }}" value="{{ $inversor->idInversor }}">{{ $inversor->vNombreMaterialFot }}</option>
+                        @endforeach
                     </select>
                     <div class="mt-2">
-                        <label class="form-label">Ingrese la cantidad de inversores</label>
-                        <input type="text" class="form-control" id="inputAddress" value="">
+                        <label class="form-label">Ingrese la cantidad de paneles</label>
+                        <input type="text" class="form-control"  id="inpCantInversores"  >
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <label class="form-label">Seleccione una estructura</label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Elige una opción</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                    <select id="optEstructuras" class="form-select" onchange="">
+                        <option selected value="">Elige una opción</option>
+                        @foreach($vEstructuras as $estructura)
+                            <option value="{{ $estructura->idEstructura }}" >{{ $estructura->vMarca }}</option>
+                        @endforeach
                     </select>
                     <div class="mt-2">
                         <label class="form-label">Ingrese la cantidad de estructuras</label>
-                        <input type="text" class="form-control" id="inputAddress" value="">
+                        <input type="text" class="form-control" id="inpCantEstructuras" value="">
                     </div>
                 </div>
 
@@ -70,7 +70,7 @@
 
             <!-- Inicia div de contención del botón de "Ajustes" -->
             <div class="col mt-3" id="divbtnAjustes">
-                <button class="btn btn-azul2 btn-estandar" type="button" id="button-addon2" data-bs-toggle="modal"
+                <button class="btn btn-azul2 btn-estandar" type="button" id="btnModalAjustePropuesta" data-bs-toggle="modal"
                         data-bs-target="#modalAjustes"><i class="uil uil-setting"></i> Ajustes
                 </button>
                 <div class="modal fade" id="modalAjustes" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -87,19 +87,14 @@
                             <div class="modal-body">
                                 <div>
                                     <label>Descuento que desee aplicar </label>
-                                    <input type="range" class="form-range" id="customRange1">
-                                    <label> % </label>
+                                    <input id="inpSliderDescuento" type="range" min="0" max="30" class="form-range" value="0" oninput="rangeValueDescuento.value=inpSliderDescuento.value" onchange="sliderModificarPropuesta();">
+                                    <output id="rangeValueDescuento"></output>%
                                 </div>
                                 <div>
                                     <label>Aumento en el costo del proyecto </label>
-                                    <input type="range" class="form-range" id="customRange1">
-                                    <label> % </label>
+                                    <input id="inpSliderAumento" type="range" min="0" max="100" class="form-range" value="0" oninput="rangeValueAumento.value=inpSliderAumento.value">
+                                    <output id="rangeValueAumento"></output>%
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-success"><i class="uil uil-check-circle"></i>
-                                    Modificar
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -110,7 +105,7 @@
             <!-- Inicia div de contención del botón de "Agregados" -->
             <div class="col mt-3" id="divbtnAgregados">
                 <!-- Botón "Agregados" -->
-                <button class="btn btn-azul2 btn-estandar" type="button" id="btnAgregadosBaja" title="Agregados"
+                <button class="btn btn-azul2 btn-estandar" type="button" id="btnAgregados" title="Agregados"
                         data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="uil uil-plus-circle"></i>
                     Agregados
                 </button>
@@ -120,44 +115,30 @@
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header"> <!-- Inicio de la parte superior del modal de "Agregados" -->
-                                <h5 class="modal-title">Agregados</h5>
-                                <!-- Label del "Costo total" del modal "Agregados" -->
-                                <div class="row pb-2 g-2">
-                                    <div class="col">
-                                        <form class="form-inline">
-                                            <div class="row">
-                                                <!-- Costo total -->
-                                                <div class="form-group col-sm-10 mt-4">
-                                                    <label for="costoTotalAgregados">Costo total: </label>
-                                                    <p id="costoTotalAgregados" class="bg-warning text-white"></p>
-                                                </div>
-                                                <!-- Botón "Calcular" -->
-                                                <div class="form-group col-sm-2 mt-2">
-                                                    <button type="button" class="btn btn-success"><i
-                                                            class="uil uil-calculator"></i>Calcular
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </form>
+                                <div>
+                                    <h5 class="modal-title">Agregados</h5>
+                                    <div class="form-group col-lg-12 mt-4">
+                                        <label for="costoTotalAgregados">Costo total: </label>
+                                        <p id="costoTotalAgregados"></p>
                                     </div>
                                 </div>
                                 <!-- Botón "Cerrar" del modal "Agregados" -->
-                                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal"
-                                        aria-label="Close"><i class="uil uil-multiply"></i></button>
+                                <div class="close">
+                                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"><i class="uil uil-multiply"></i></button>
+                                </div>
                                 <!-- Fin botón "Cerrar" del modal "Agregados" -->
                             </div> <!-- Fin de la parte superior del modal de "Agregados" -->
                             <div class="modal-body"> <!-- Inicio del cuepro del modal de "Agregados" -->
                                 <div class="container-fluid">
                                     <div class="row pb-3 g-3">
                                         <!-- Inicio campos para generar un nuevo "Agregado" -->
-                                        <div class="col">
-                                            <form class="form-inline">
-                                                <div class="row">
+                                        <div class="col pb-3">
+                                            <form class="">
+                                                <div class="row g-3">
                                                     <!-- Cantidad -->
                                                     <div class="form-group col-md-3">
                                                         <label for="inpCantidadAg">Cantidad</label>
-                                                        <input id="inpCantidadAg" type="number"
-                                                               class="form-control inpAg">
+                                                        <input id="inpCantidadAg" type="number" class="form-control inpAg">
                                                     </div>
                                                     <!-- Concepto -->
                                                     <div class="form-group col-md-5">
@@ -165,16 +146,14 @@
                                                         <input id="inpAgregado" type="text" class="form-control inpAg">
                                                     </div>
                                                     <!-- Precio -->
-                                                    <div class="form-group col-md-2">
+                                                    <div class="form-group col-sm-2">
                                                         <label for="inpPrecioAg">Precio</label>
                                                         <input id="inpPrecioAg" type="number" min=".50" step="any"
                                                                class="form-control inpAg">
                                                     </div>
                                                     <!-- Botón "Nuevo agregado" -->
-                                                    <div class="form-group col-md-2 mt-4">
-
-                                                        <button id="btnAddAg" type="button" class="btn btn-primary"><i
-                                                                class="uil uil-plus"></i></button>
+                                                    <div class="form-group col-sm-2 mt-5">
+                                                        <button id="btnAddAg" type="button" class="btn btn-azul2"  onclick="addAgregado();"><i class="uil uil-plus"></i></button>
                                                     </div>
                                                     <!-- Fin botón "Nuevo agregado" -->
                                                 </div>
@@ -211,9 +190,9 @@
             </div>
             <!-- Fin div de contención del botón de "Agregados" -->
 
-            <!-- Inicio div de contención del botón de "Generar" -->
+            <!-- Inicio div de contención del botón de "Calcular" -->
             <div class="col mt-3" id="divbtnCalcular">
-                <button class="btn btn-azul2 btn-estandar" type="button" id="button-addon2"><i
+                <button class="btn btn-azul2 btn-estandar" type="button" id="calcularCotIndiv" onclick="calcularCotizacionIndividual()"><i
                         class="uil uil-calculator"></i> Calcular
                 </button>
             </div>
@@ -221,8 +200,8 @@
 
             <!-- Inicio div de contención del botón de "Generar" -->
             <div class="col mt-3" id="divbtnGenerarEquipos">
-                <button class="btn btn-azul2 btn-estandar" type="button" id="button-addon2"><i
-                        class="uil uil-import"></i> Generar
+                <button class="btn btn-azul2 btn-estandar" type="button" id="generarPDF" onclick="generarEntregable()">
+                    <i class="uil uil-import"></i> Generar PDF
                 </button>
             </div>
             <!-- Fin div de contención del botón de "Generar" -->
@@ -234,10 +213,12 @@
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap">
                 <p><i class="uil uil-setting"></i> Configuración del PDF</p>
                 <!-- Botón de configuración del PDF -->
-                <div class="form-check">
+                <div class="justify-content-end move">
                     <label class="form-check-label" for="flexCheckDefault">
                         ¿Desea que los subtotales se muestren desglozados?
                     </label>
+                </div>
+                <div class="form-check justify-content-end ">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 </div>
             </div>
@@ -245,6 +226,7 @@
 
     </div>
 
+    <!--Resultados-->
     <div class="container-fluid card-section mt-4">
         <div class="row pb-3 g-3">
             <div
@@ -262,19 +244,19 @@
                         </thead>
                         <tr>
                             <td>Potencia instalada</td>
-                            <td>ejemplo 1</td>
+                            <td id="resPotenciaInstalada"></td>
                         </tr>
                         <tr>
                             <td>Costo por panel(es)</td>
-                            <td>ejemplo 2</td>
+                            <td id="resCostoPanel"></td>
                         </tr>
                         <tr>
                             <td>Costo por inversor(es)</td>
-                            <td>ejemplo 3</td>
+                            <td id="resCostInversor"></td>
                         </tr>
                         <tr>
                             <td>Costo por estructura(s)</td>
-                            <td>ejemplo 4</td>
+                            <td id="resCostEstruct"></td>
                         </tr>
                     </table>
                 </div>
@@ -287,15 +269,15 @@
                             </thead>
                             <tr>
                                 <td>Costo de viáticos</td>
-                                <td>ejemplo 1</td>
+                                <td id="resCostoViaticos"></td>
                             </tr>
                             <tr>
                                 <td>Costo de mano de obra y otros</td>
-                                <td>ejemplo 2</td>
+                                <td id="resCostoMO"></td>
                             </tr>
                             <tr>
                                 <td>Costo fletes</td>
-                                <td>ejemplo 3</td>
+                                <td id="resCostoFletes"></td>
                             </tr>
                         </table>
                     </div>
@@ -310,13 +292,13 @@
                         </thead>
                         <tr>
                             <td>USD</td>
-                            <td>ejemplo 1</td>
-                            <td>ejemplo 1.1</td>
+                            <td id="tdSubtotalUSD"></td>
+                            <td id="tdTotalUSD"></td>
                         </tr>
                         <tr>
                             <td>MXN</td>
-                            <td>ejemplo 2</td>
-                            <td>ejemplo 2.2</td>
+                            <td id="tdSubtotalMXN"></td>
+                            <td id="tdTotalMXN"></td>
                         </tr>
                     </table>
                 </div>
