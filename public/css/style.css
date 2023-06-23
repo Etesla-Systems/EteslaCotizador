@@ -464,6 +464,7 @@ a{
 
 }
 
+<<<<<<< HEAD
 .inp
 {
     height: 42px;
@@ -502,6 +503,10 @@ body.loading .loading-spinner{
     display: block;
 }
 /* Fin LodingSpinner */
+=======
+
+
+>>>>>>> 8b0162a57cf7a0fdf3f49f24454852c6a75f4377
 
 
 

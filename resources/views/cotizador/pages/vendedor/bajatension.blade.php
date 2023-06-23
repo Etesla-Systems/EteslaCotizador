@@ -1,6 +1,10 @@
 @extends('cotizador.includes.app')
 @section('window', 'Baja Tension')
+<<<<<<< HEAD
 @section('content')
+=======
+@section('current-content')
+>>>>>>> 8b0162a57cf7a0fdf3f49f24454852c6a75f4377
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h3 class="subtitle-window">Baja tensi&oacute;n</h3>
     </div>

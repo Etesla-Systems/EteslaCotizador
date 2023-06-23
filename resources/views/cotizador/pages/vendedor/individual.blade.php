@@ -200,8 +200,13 @@
 
             <!-- Inicio div de contención del botón de "Generar" -->
             <div class="col mt-3" id="divbtnGenerarEquipos">
+<<<<<<< HEAD
                 <button class="btn btn-azul2 btn-estandar" type="button" id="generarPDF" onclick="generarEntregable()">
                     <i class="uil uil-import"></i> Generar PDF
+=======
+                <button class="btn btn-azul2 btn-estandar" type="button" id="button-addon2"><i
+                        class="uil uil-import"></i> Generar PDF
+>>>>>>> 8b0162a57cf7a0fdf3f49f24454852c6a75f4377
                 </button>
             </div>
             <!-- Fin div de contención del botón de "Generar" -->

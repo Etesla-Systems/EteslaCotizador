@@ -6,11 +6,21 @@
         <title>¡Bienvenidos!</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<<<<<<< HEAD
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+=======
+
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+>>>>>>> 8b0162a57cf7a0fdf3f49f24454852c6a75f4377
         <link href="/css/login.css" rel="stylesheet">
     </head>
 
     <body>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 8b0162a57cf7a0fdf3f49f24454852c6a75f4377
         @if (session('status-success'))
             <div class="alert alert-success alert-dismissible fade show myAlert" role="alert">
                 <strong>¡Correcto!</strong> {{ session('status-success') }}
@@ -33,11 +43,24 @@
         <section id="contenidoLogin" class="login">
             <div class="cont">
                 @yield('content')
+<<<<<<< HEAD
+=======
+=======
+        <section id="contenidoLogin" class="login">
+            <div class="cont">
+                @yield('content')
+
+>>>>>>> 0cc3c4e0559b0fedf25ddace971f0509df7f8d5c
+>>>>>>> 8b0162a57cf7a0fdf3f49f24454852c6a75f4377
                 <div>
                     <img src="{{asset('assets/img/etesla_planta.png')}}" class="pequeña">
                 </div>
             </div>
         </section>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 8b0162a57cf7a0fdf3f49f24454852c6a75f4377
         <!--Fin sección que contiene la vista "Login"-->
     </body>
 
@@ -73,3 +96,10 @@
 </html>
 
 
+<<<<<<< HEAD
+=======
+=======
+    </body>
+</html>
+>>>>>>> 0cc3c4e0559b0fedf25ddace971f0509df7f8d5c
+>>>>>>> 8b0162a57cf7a0fdf3f49f24454852c6a75f4377
