@@ -20,8 +20,12 @@
         "laravel/framework": "^v8.83.23",
         "laravel/tinker": "^2.7.2",
         "laravel/ui": "^3.4",
+<<<<<<< HEAD
         "spatie/laravel-permission": "^5.10",
         "tymon/jwt-auth": "dev-develop"
+=======
+        "spatie/laravel-permission": "^5.10"
+>>>>>>> 8b0162a57cf7a0fdf3f49f24454852c6a75f4377
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
