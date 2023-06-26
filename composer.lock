@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "content-hash": "b01e686c474ccd33713db50e4247d2f6",
-=======
-    "content-hash": "95ae24cf37ca181437d820dd46c5bdb7",
->>>>>>> 8b0162a57cf7a0fdf3f49f24454852c6a75f4377
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3630,7 +3626,6 @@
             "time": "2021-09-25T23:10:38+00:00"
         },
         {
-<<<<<<< HEAD
             "name": "sabberworm/php-css-parser",
             "version": "8.4.0",
             "source": {
@@ -3684,8 +3679,6 @@
             "time": "2021-12-11T13:40:54+00:00"
         },
         {
-=======
->>>>>>> 8b0162a57cf7a0fdf3f49f24454852c6a75f4377
             "name": "spatie/laravel-permission",
             "version": "5.10.1",
             "source": {
