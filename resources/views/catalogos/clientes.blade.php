@@ -1,6 +1,6 @@
 @extends('cotizador.includes.app')
 @section('window', 'Clientes')
-@section('current-content')
+@section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h3 class="subtitle-window">Clientes</h3>
         <button class="btn btn-verde" type="button" id="button-addon2 " data-bs-toggle="collapse" data-bs-target="#collapseAgregarCliente" aria-expanded="false" aria-controls="collapseWidthExample"><i class="uil uil-user-plus"></i> Agregar nuevo cliente</button>
