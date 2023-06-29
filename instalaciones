@@ -1,0 +1,1 @@
+Es necesario instalar la librería JWT con el siguiente comando composer require firebase/php-jwt
