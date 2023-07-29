@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link href="/css/login.css" rel="stylesheet">
+    <link href="{{ asset('css/login.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -45,12 +45,11 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
 <!--==========================================================================================================-->
-<script src="js/log.js"></script>
+<script src="{{ asset('js/log.js') }}"></script>
 <script src="{{ asset('js/alert-bootstrap.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
     window.onload = function() {
         myAlert();
-
         ///
         sessionStorage.removeItem("tarifaMT");
     };

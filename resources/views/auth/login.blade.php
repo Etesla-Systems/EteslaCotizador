@@ -37,7 +37,11 @@
                                 </div>
                             </div>
 
-                            <div class="row mt-5">
+                            <div class="row mt-2 font_center tipo2">
+                                <p class="sub">¿No tienes una cuenta? <a href="{{ route('registro') }}" align="center">Registrate</a></p>
+                            </div>
+
+                            <div class="row mt-4">
                                 <button type="submit" class="btn btn-estandar btn-verde">Entrar</button><br>
                             </div>
                         </form>

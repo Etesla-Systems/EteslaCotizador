@@ -131,22 +131,19 @@ class PDFController extends Controller
                         [
                             "label" => "Consumo s/paneles [Bimestral]",
                             "data" => $consumoActualBim,
-                            "backgroundColor" => 'rgba(245, 62, 29, 0.61)',
-                            "borderColor" => 'rgba(245, 62, 29, 1)',
+                            "backgroundColor" => 'rgb(204, 15, 3)',
                             "borderWidth" => 1
                         ],
                         [
                             "label" => "Generacion [Bimestral]",
                             "data" => $generacionBim,
-                            "backgroundColor" => 'rgba(102, 196, 79, 0.54)',
-                            "borderColor" => 'rgba(85, 177, 62, 1)',
+                            "backgroundColor" => 'rgb(8, 37, 103)',
                             "borderWidth" => 1
                         ],
                         [
                             "label" => "Nuevo consumo c/paneles [Bimestral]",
                             "data" => $consumoNuevoBim,
-                            "backgroundColor" => 'rgba(29, 170, 245, 0.55)',
-                            "borderColor" => 'rgba(29, 170, 245, 1)',
+                            "backgroundColor" => 'rgb(122, 179, 23)',
                             "borderWidth" => 1
                         ]
                     ]
@@ -184,15 +181,13 @@ class PDFController extends Controller
                         [
                             "label" => "Consumo s/paneles [Bimestral]",
                             "data" => $consumosEconActualesBim,
-                            "backgroundColor" => 'rgba(245, 62, 29, 0.61)',
-                            "borderColor" => 'rgba(245, 62, 29, 1)',
+                            "backgroundColor" => 'rgb(204, 15, 3)',
                             "borderWidth" => 1
                         ],
                         [
                             "label" => "Consumo c/paneles [Bimestral]",
                             "data" => $consumosEconNuevosBim,
-                            "backgroundColor" => 'rgba(102, 196, 79, 0.54)',
-                            "borderColor" => 'rgba(85, 177, 62, 1)',
+                            "backgroundColor" => 'rgb(122, 179, 23)',
                             "borderWidth" => 1
                         ]
                     ]
@@ -235,9 +230,9 @@ class PDFController extends Controller
 
     public function visualizarPDF()
     {
-        $pdf = PDF::loadview('PDFTemplates.machotes.hospital')
+        $pdf = PDF::loadview('PDFTemplates.Machotes.bajaTension')
             ->setOptions(['isRemoteEnabled' => false])
-            ->setPaper('A4');
+            ->setPaper('array(0,0,612.00,792.00)', 'portrait');
 
         return $pdf->stream('test.pdf');
     }

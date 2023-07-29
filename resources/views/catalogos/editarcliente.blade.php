@@ -1,6 +1,6 @@
 @extends('cotizador.includes.app')
 @section('window', 'Clientes')
-@section('current-content')
+@section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h3 class="subtitle-window">Cliente/Editar</h3>
         <a href="{{url('/clientes')}}" class="btn btn-azul2 border-bottom"><i class="bx bx-arrow-back"></i> Regresar</a>

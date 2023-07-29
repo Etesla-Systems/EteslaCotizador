@@ -432,7 +432,7 @@ a{
 
 .celda-azul
 {
-    background-color:  #4474C2 ;
+    background-color:  #4474C2 !important;
 }
 
 .font-white
@@ -504,6 +504,101 @@ body.loading .loading-spinner{
 /* Fin LodingSpinner */
 
 
+.inpAnsw{
+    border:0;
+    background: transparent !important;
+    border-bottom: 1px solid #888 !important;
+}
 
+.graficosCenter
+{
+    text-align: center;
+    justify-content: center;
+}
+
+
+/* Color de celdas */
+.celVerde
+{
+    background-color: #7ab317 !important;
+    border-right-width: 7px;
+
+}
+
+.celVerde:hover
+{
+    background-color: darkseagreen !important;
+}
+
+.celRojo
+{
+    background-color: #CC0F03 !important;
+    border-right-width: 7px;
+}
+
+.celRojo:hover
+{
+    background-color: indianred !important;
+}
+
+.celAzul
+{
+    background-color: #082567 !important;
+    border-right-width: 7px;
+}
+
+.celAzul:hover
+{
+    background-color: steelblue !important;
+}
+
+.celGris
+{
+    background-color: #343E36 !important;
+}
+
+.celGris_2
+{
+    background-color: #90AAAD !important;
+}
+
+.tablaEnergia
+{
+    border-color: white;
+}
+
+.celdaPer
+{
+    width: 150px;
+    height: 50px;
+}
+
+
+.ambosBordes
+{
+    border-radius: 10px;
+}
+
+.bordeBut
+{
+    border-bottom: 7px solid white;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+
+.tabla-container {
+    display: grid;
+    place-items: center;
+}
+
+.alineaDerecha
+{
+    text-align: right;
+}
+/* Fin color de celdas */
 
 

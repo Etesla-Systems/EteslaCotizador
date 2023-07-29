@@ -13,11 +13,11 @@
     }
     .footer-page{
         position: fixed;
-        bottom: 0cm;
-        left: 0cm;
-        right: 0cm;
+        bottom: 0;
+        left: 0;
+        right: 0;
         height: 19px;
-        background-color: #5FC055;
+        background-color: #4474C2;
     }
 
     /* Contenedores */
@@ -77,7 +77,7 @@
         overflow: hidden;
     }
     .table-costos-proyecto thead{
-        background-color: green;
+        background-color: #7ab317;
         color: white;
         font-size: 16px;
         font-weight: bold;
@@ -162,6 +162,23 @@
         height: 100px;
         margin-left: 10px;
     }
+
+    .banderas
+    {
+        width: 4%; /* o el porcentaje deseado */
+        height: auto;
+    }
+
+    .margins
+    {
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
+
+    .marginTop
+    {
+        margin-top: 5px;
+    }
 </style>
 <body>
 <!-- Page 1 -->
@@ -195,26 +212,26 @@
         </div>
     </div>
     <div class="container-table">
-        <table class="table-costos-proyecto">
+        <table class="table-costos-proyecto marginTop">
             <thead>
             <tr>
-                <th scope="col">TIPO</th>
-                <th scope="col">MARCA</th>
-                <th scope="col">CANTIDAD</th>
-                <th scope="col">NOMBRE</th>
-                <th scope="col">TOTAL</th>
+                <th scope="col" style="text-align: center;">TIPO</th>
+                <th scope="col" style="text-align: center;">MARCA</th>
+                <th scope="col" style="text-align: center;">CANTIDAD</th>
+                <th scope="col" style="text-align: center;">NOMBRE</th>
+                <th scope="col" style="text-align: center;">TOTAL</th>
             </tr>
             </thead>
             <tbody>
             @if(!is_null($paneles))
                 <!-- SI LA COTIZACION TIENE *PANELES* -->
-                <tr id="desglocePanel">
-                    <td>Panel</td>
-                    <td>{{ $paneles["vMarca"] }}</td>
-                    <td>{{ $paneles["noModulos"] }}</td>
-                    <td>{{ $paneles["vNombreMaterialFot"] }}</td>
+                <tr id="desglocePanel" style="background-color:lightgrey;">
+                    <td style="text-align: center;">Panel</td>
+                    <td style="text-align: center;">{{ $paneles["vMarca"] }}</td>
+                    <td style="text-align: center;">{{ $paneles["noModulos"] }}</td>
+                    <td style="text-align: center;">{{ $paneles["vNombreMaterialFot"] }}</td>
                     @if($PdfConfig["subtotalesDesglozados"] === "true")
-                        <td id="costoTotalPanel">${{ number_format($paneles["costoTotal"],2) }} USD</td>
+                        <td id="costoTotalPanel" style="text-align: center;">${{ number_format($paneles["costoTotal"],2) }} USD</td>
                     @else
                         <td id="costoTotalPanel"></td>
                     @endif
@@ -223,60 +240,60 @@
             @if(!is_null($inversores))
                 <!-- SI LA COTIZACION TIENE *INVERSORES* -->
                 <tr id="desgloceInversor">
-                    <td>Inversor</td>
-                    <td id="marcaInversor">
+                    <td style="text-align: center;">Inversor</td>
+                    <td id="marcaInversor" style="text-align: center;">
                         {{ $inversores["vMarca"] }}
                     </td>
                     @if($inversores["combinacion"] === "true")
                         <td colspan="2">
-                            <p style="font-size:10px;">
+                            <p style="font-size:10px; text-align: center;">
                                 {{ $inversores["MicroUno"]["vNombreMaterialFot"] }}: {{ $inversores["MicroUno"]["numeroDeInversores"] }}
                             </p>
-                            <p style="font-size:10px;">
+                            <p style="font-size:10px; text-align: center;">
                                 {{ $inversores["MicroDos"]["vNombreMaterialFot"] }}: {{ $inversores["MicroDos"]["numeroDeInversores"] }}
                             </p>
                         </td>
                     @else
-                        <td id="cantidadInversor">
+                        <td id="cantidadInversor" style="text-align: center;">
                             {{ $inversores["numeroDeInversores"] }}
                         </td>
-                        <td id="modeloInversor" style="font-size: 13px;">
+                        <td id="modeloInversor" style="font-size: 13px; text-align: center;">
                             {{ $inversores["vNombreMaterialFot"] }}
                         </td>
                     @endif
                     @if($PdfConfig["subtotalesDesglozados"] === "true")
-                        <td id="costoTotalInversor">
+                        <td id="costoTotalInversor" style="text-align: center;">
                             ${{ number_format($inversores["costoTotal"],2) }} USD
                         </td>
                         else
-                        <td id="costoTotalInversor"></td>
+                        <td id="costoTotalInversor" style="text-align: center;"></td>
                     @endif
                 </tr>
             @endif
             @if(!is_null($estructura["_estructuras"]))
                 <!-- SI LA COTIZACION TIENE *ESTRUCTURAS* -->
-                <tr id="desgloceEstructura">
-                    <td>Estructura</td>
-                    <td id="marcaEstructura">
+                <tr id="desgloceEstructura" style="background-color:lightgrey;">
+                    <td style="text-align: center;">Estructura</td>
+                    <td id="marcaEstructura" style="text-align: center;">
                         {{ $estructura["_estructuras"]["vMarca"] }}
                     </td>
-                    <td id="cantidadEstructura">
+                    <td id="cantidadEstructura" style="text-align: center;">
                         {{ $estructura["cantidad"] }}
                     </td>
-                    <td>Estructura de aluminio</td>
+                    <td style="text-align: center;">Estructura de aluminio</td>
                     @if($PdfConfig["subtotalesDesglozados"] === "true")
-                        <td id="costoTotalEstructuras">
+                        <td id="costoTotalEstructuras" style="text-align: center; background-color:lightgrey;">
                             ${{ number_format($estructura["costoTotal"],2) }} USD
                         </td>
                         else
-                        <td id="costoTotalEstructuras"></td>
+                        <td id="costoTotalEstructuras" style="background-color:lightgrey;"></td>
                     @endif
                 </tr>
             @endif
             @if(!is_null($agregados["_agregados"]))
                 <!-- SI LA COTIZACION TIENE *ESTRUCTURAS* -->
                 <tr id="desgloceAgregados">
-                    <td>Agregados</td>
+                    <td style="text-align: center;">Agregados</td>
                     <td></td>
                     <td></td>
                     <td>
@@ -288,7 +305,7 @@
             @if($totales["manoDeObra"] > 0)
                 <!-- SI LA COTIZACION TIENE *MANO DE OBRA* -->
                 <tr id="desgloceManoDeObra">
-                    <td>Mano de obra</td>
+                    <td style="text-align: center;">Mano de obra</td>
                     <td></td>
                     <td></td>
                     <td style="font-size:10px;">
@@ -299,8 +316,8 @@
             @endif
             @if($totales["otrosTotal"] > 0)
                 <!-- SI LA COTIZACION TIENE *OTROS* -->
-                <tr>
-                    <td>Otros</td>
+                <tr style="background-color:lightgrey;">
+                    <td style="text-align: center;">Otros</td>
                     <td></td>
                     <td></td>
                     <td style="font-size:10px;">
@@ -330,13 +347,13 @@
                     <td></td>
                 @endif
                 <td align="center">
-                    <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/banderas/estados-unidos.png'))) }}"/>
+                    <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/USA_1.png'))) }}" class="banderas margins"/>
                 </td>
                 <td align="center">
-                    <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/banderas/mexico.png'))) }}"/>
+                    <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/MEX_1.png'))) }}" class="banderas margins"/>
                 </td>
             </tr>
-            <tr style="background-color: #E8E8E8;">
+            <tr style="background-color: lightgrey;">
                 <td><strong>Total sin IVA</strong></td>
                 @if($descuento["porcentaje"] > 0)
                     <td id="tdTotalAntesDeDescuento" style="border-right:solid #2593F0; border-left:solid #2593F0; border-bottom:solid #2593F0;">
@@ -363,7 +380,7 @@
                     ${{ number_format($totales["precioMXNSinIVA"], 2) }} MXN
                 </td>
             </tr>
-            <tr style="background-color: #E8E8E8;">
+            <tr style="background-color: lightgrey;">
                 <td><strong>Total con IVA</strong></td>
                 <td></td>
                 <td></td>
@@ -388,7 +405,7 @@
                 <td id="imgLogoPanel" align="center" style="border: none; width: 110px; height: 90px;">
                     <img height="32px" width="32px" src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/icon/generation-sun-electricity.png'))) }}"/>
                     <h4 style="margin-top: -10px;">Potencia instalada:</h4>
-                    <h3 style="color:#3333FF;margin-top: -10px;">{{ ($paneles["fPotencia"] * $paneles["noModulos"])/1000 }} kWh</h3>
+                    <h3 style="color:#082567;margin-top: -10px;">{{ ($paneles["fPotencia"] * $paneles["noModulos"])/1000 }} kWh</h3>
                 </td>
             @endif
             @if(!is_null($paneles))
@@ -402,9 +419,9 @@
                 </td>
             @endif
             @if(!is_null($inversores))
-                @php($image = $inversores['vMarca'] . '.jpg')
+                @php($image = $inversores['vMarca'] . '.png')
                 <td id="imgLogoInversor" align="center" style="border: none; width: 110px; height: 90px;">
-                    <img style="width:100%; height:auto;" src="data:image/jpg;base64,{{ base64_encode(file_get_contents(public_path('/img/equipos/logos/inversor/' . $image))) }}">
+                    <img style="width:100%; height:auto;" src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/equipos/logos/inversor/' . $image))) }}">
                     <!--<p style="text-align:center; font-size:10px; margin-top:-35px;">
                             <strong>{{ $inversores['vMarca'] }}</strong>
                         </p>-->
@@ -422,7 +439,7 @@
         </tr>
     </table>
     <!-- Fin logos/marcas equip. -->
-    <hr class="linea-division" style="background-color: #5576F2; margin-top:9px;">
+    <hr class="linea-division" style="background-color: #4474C2; margin-top:9px;">
 
     <!-- * Sellos * -->
     <table class="table-contenedor" style="margin-top:20px; margin-left: 20px; margin-right: 20px;">

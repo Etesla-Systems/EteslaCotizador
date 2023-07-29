@@ -11,7 +11,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link href="/css/style.css" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <title>@yield('window')</title>
 </head>
 
@@ -31,7 +31,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-<script src="/js/main.js"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 <script src="{{ asset('js/alert-bootstrap.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/index.js') }}"></script> <!-- Este archivo es necesario para el CP y buscador -->
 <script src="{{ asset('js/log.js') }}"></script>
@@ -40,6 +40,7 @@
 <script src="{{ asset('js/cotizador/bajaTension.js') }}"></script>
 <script src="{{ asset('js/cotizador/mediaTension.js') }}"></script>
 <script src="{{ asset('js/cotizador/cotizador.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
 <script type="text/javascript">
     window.onload = function() {
         myAlert();
@@ -59,6 +60,50 @@
                 $("#vmas").show();
             }, 175);
         });
+    });
+</script>
+
+<script type="text/javascript">
+    $("#switch-2").change(function () {
+        if ($('#switch-2').prop('checked')) {
+
+            for (var count = 2; count <= 12; count++) {
+                $("#men-val-" + count).attr("readonly", "readonly");
+                $("#men-val-" + count + "a").attr("readonly", "readonly");
+
+                var value1 = $("#men-val-1").val();
+                var value2 = $("#men-val-1a").val();
+
+                $("#men-val-" + count).val(value1);
+                $("#men-val-" + count + "a").val(value2);
+            }
+        } else {
+            for (var count = 2; count <= 12; count++) {
+                $("#men-val-" + count).removeAttr("readonly", "readonly");
+                $("#men-val-" + count + "a").removeAttr("readonly", "readonly");
+            }
+        }
+    });
+
+    // Función invocada por el input, agrega su valor a los demás.
+    $("#men-val-1").keyup(function () {
+        if ($('#switch-2').prop('checked')) {
+            for (var count = 2; count <= 12; count++) {
+                var value = $(this).val();
+
+                $("#men-val-" + count).val(value);
+            }
+        }
+    });
+
+    $("#men-val-1a").keyup(function () {
+        if ($('#switch-2').prop('checked')) {
+            for (var count = 2; count <= 12; count++) {
+                var value = $(this).val();
+
+                $("#men-val-" + count + "a").val(value);
+            }
+        }
     });
 </script>
 

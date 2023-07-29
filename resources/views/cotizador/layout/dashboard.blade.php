@@ -10,7 +10,7 @@
         <div id="carruselInfo" class="carousel slide">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('assets/img/banner_dollar.png')}}" class="d-block w-100" alt="...">
+                    <a href="{{ url('pdfCreate') }}"><img src="{{asset('assets/img/banner_dollar.png')}}" class="d-block w-100" alt="..."></a>
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Precio actual: ${{ $precioDolar->precioDolar }} MXN</h5>
                         <p>Última actualización: {{ $precioDolar -> fechaUpdate }}</p>

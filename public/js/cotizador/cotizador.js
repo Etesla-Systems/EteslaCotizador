@@ -123,22 +123,34 @@ function catchPDFConfiguration(){ ///Return [Object]
 function generarPDF(){
     let data = {};
 
+    console.log("Data de generar PDF");
+    console.log(data);
+
     //Validar que tipo de cotizacion se esta tratando de generarPDF
     let tipoCotizacion = sessionStorage.getItem("tarifaMT");
 
     if(tipoCotizacion === 'GDMTO' || tipoCotizacion === 'GDMTH'){ ///MediaTension
         data = sessionStorage.getItem("propuestaMT");
+        console.log("Data generar PDF MT");
+        console.log(data);
     }
     else if(tipoCotizacion === 'null' || typeof tipoCotizacion === 'undefined'){ ///BajaTension
         data = sessionStorage.getItem("answPropuesta"); //Sin Combinaciones
         data = data != null ? data : sessionStorage.getItem("arrayCombinaciones"); //Con Combinaciones
+        console.log("Data generar PDF combinaciones");
+        console.log(data);
     }
     else{ ///Individual
         data = sessionStorage.getItem('ssPropuestaIndividual');
+        console.log("Data generar PDF else");
+        console.log(data);
     }
 
     data = JSON.parse(data);
-    data = data.tipoCotizacion ? data : data;
+    data = data.tipoCotizacion ? data : data[0];
+
+    console.log("Data en tipo de cotizacion");
+    console.log(data.tipoCotizacion);
 
     //Validar que tenga -COMBINACIONES- se agrega la data de la -CombinacionSeleccionada-
     if(data.combinaciones){
@@ -223,6 +235,8 @@ function visualizandoPDF(pdfFile){
 function getPDFFileName(dataPropuesta){
     //Validar si la propuesta es -NORMAL- o -COMBINACIONES-
     dataPropuesta = dataPropuesta.tipoCotizacion !== "Combinacion" ? dataPropuesta : dataPropuesta.propuesta;
+    console.log("DataPropuesta");
+    console.log(dataPropuesta.cliente);
 
     let nombreCliente = dataPropuesta.cliente.vNombrePersona + dataPropuesta.cliente.vPrimerApellido + dataPropuesta.cliente.vSegundoApellido;
     let tipoCotizacion = dataPropuesta.tipoCotizacion;
@@ -279,4 +293,133 @@ function guardarPropuesta(){
             }
         });
     });
+}
+
+function limpiarGrafico(){
+    /* < Grafico - Energetico > */
+    $('#chartEnergetico').remove(); //Se elimina el <canvas> anterior
+    $('#divChartEnergetico').append('<canvas id="chartEnergetico"></canvas>'); //Se agrega un nuevo <canvas>
+    let canvasEnergetico = document.querySelector('#chartEnergetico');
+    ctx = canvasEnergetico.getContext('2d');
+    ctx.canvas.width = '150px';
+    ctx.canvas.height = '90px';
+
+    /* < Grafico - Economico > */
+    $('#chartEconomico').remove(); //Se elimina el <canvas> anterior
+    $('#divChartEconomico').append('<canvas id="chartEconomico"></canvas>'); //Se agrega un nuevo <canvas>
+    let graficoEconomico = document.querySelector('#chartEconomico');
+    ctx = graficoEconomico.getContext('2d');
+    ctx.canvas.width = '150px';
+    ctx.canvas.height = '90px';
+}
+
+function pintarGrafico(Data){
+    // let tipoCotizacion = null;
+
+    //Graficos
+    const graficoEnergetico = document.getElementById('chartEnergetico').getContext('2d');
+    const graficoEconomico = document.getElementById('chartEconomico').getContext('2d');
+
+    console.log("Pintar grafico");
+    console.log(Data);
+
+    try{
+        //Formating *
+        /* Energetico */
+        let _consumosEnergActualesBim = Data.objResp.consumo._promCons._consumosBimestrales;
+        let _generacionBim = Data.power.generacion._generacionBimestral;
+        let _consumosEnergNuevosBim = Data.power.nuevosConsumos._consumosNuevosBimestrales;
+        /* Economico */
+        let _consumosEconActualesBim = Data.power.objConsumoEnPesos._pagosBimestrales;
+        let _consumosEconNuevosBim = Data.power.objGeneracionEnpesos._pagosBimestrales;
+
+        /*                      Grafico - Energetico                        */
+        const configGraficoEnergetico = {
+            type: 'bar',
+            data: {
+                labels: ['1er', '2do', '3er', '4to', '5to', '6to'],
+                datasets: [
+                    //Consumo Actual
+                    {
+                        label: 'Consumo s/Paneles',
+                        data: _consumosEnergActualesBim,
+                        backgroundColor: 'rgb(204, 15, 3)',
+                        borderWidth: 1
+                    },
+                    //Generacion
+                    {
+                        label: 'Generacion Paneles',
+                        data: _generacionBim,
+                        backgroundColor: 'rgb(8, 37, 103)',
+                        borderWidth: 1
+                    },
+                    //Nuevo consumo
+                    {
+                        label: 'Consumo c/Paneles',
+                        data: _consumosEnergNuevosBim,
+                        backgroundColor: 'rgb(122, 179, 23)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value, index, values){
+                                return value.toLocaleString("es-MX") + " kw";
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        /*                      Grafico - Economico                        */
+        const configGraficoEconomico = {
+            type: 'bar',
+            data: {
+                labels: ['1er', '2do', '3er', '4to', '5to', '6to'],
+                datasets: [
+                    {
+                        label: 'Pago a CFE s/Paneles',
+                        data: _consumosEconActualesBim,
+                        backgroundColor: 'rgb(204, 15, 3)',
+                        borderWidth: 1
+                    },
+                    //Generacion
+                    {
+                        label: 'Pago a CFE c/Paneles',
+                        data: _consumosEconNuevosBim,
+                        backgroundColor: 'rgb(122, 179, 23)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value, index, values){
+                                return "$" + value.toLocaleString("es-MX") + " mxn";
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        const chartEnergetico = new Chart(graficoEnergetico,configGraficoEnergetico);
+        const chartEconomico = new Chart(graficoEconomico,configGraficoEconomico);
+    }
+    catch(error){
+        console.log(error);
+        alert('Error al intentar pintar las graficas');
+    }
 }

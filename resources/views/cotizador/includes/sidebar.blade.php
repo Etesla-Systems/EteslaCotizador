@@ -21,7 +21,7 @@
                     </a>
                     <ul class="submenu collapse">
                         <li>
-                            <a class="nav_link" href="{{ url('bajatension') }}">
+                            <a class="nav_link" href="{{ url('bajaTension') }}">
                                 <i class='bx bx-trending-down nav_icon'></i>
                                 <span class="nav_name">Baja Tensi&oacute;n</span>
                             </a>

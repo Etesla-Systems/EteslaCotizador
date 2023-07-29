@@ -3,67 +3,81 @@
 @section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h3 class="subtitle-window">Clientes</h3>
-        <button class="btn btn-verde" type="button" id="button-addon2 " data-bs-toggle="collapse" data-bs-target="#collapseAgregarCliente" aria-expanded="false" aria-controls="collapseWidthExample"><i class="uil uil-user-plus"></i> Agregar nuevo cliente</button>
+        <button class="btn btn-verde" type="button" id="button-addon2" data-bs-toggle="collapse" data-bs-target="#collapseAgregarCliente" aria-expanded="false" aria-controls="collapseWidthExample"><i class="uil uil-user-plus"></i> Agregar nuevo cliente</button>
     </div>
 
     <div class="mt-1">
         <div>
             <div class="collapse" id="collapseAgregarCliente">
                 <div class="card card-body">
-                    <div class="row pb-3 g-3">
+                    <div>
                         <div class="d-flex justify-content-between col-md-12 border-bottom py-2">
                             <!-- Botón de agregar cliente -->
                             <h6>Agregue la informaci&oacute;n general del cliente</h6>
                         </div>
                         <!-- Inician campos para agregar cliente o cargarlo -->
-                        <div class="col-md-3">
-                            <label class="form-label"><strong>*</strong> Nombre:</label>
-                            <input type="text" class="form-control" id="inputAddress" value="" required>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label"><strong>*</strong> Primer apellido:</label>
-                            <input type="text" class="form-control" id="inputAddress" value="">
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label">Telef&oacute;no: </label>
-                            <input type="text" class="form-control" id="inputAddress" value="">
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label"><strong>*</strong> Telef&oacute;no celular:</label>
-                            <input type="text" class="form-control" id="inputAddress" value="">
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label">Correo electr&oacute;nico:</label>
-                            <input type="text" class="form-control" id="inputAddress" value="">
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label"><strong>*</strong> Dirección (calle):</label>
-                            <input type="text" class="form-control" id="inputAddress" value="">
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label"><strong>*</strong> CP: </label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="inputAddress" value="">
-                                <button class="btn btn-azul2" type="button" id="button-addon2"><i class="uil uil-search"></i></button>
+                        <form method="POST" action="{{ url('registrarCliente') }}">
+                            @csrf
+                            <div class="row pb-3 g-3">
+                                <div class="col-md-3">
+                                    <label class="form-label"><strong>*</strong> Nombre:</label>
+                                    <input type="text" class="form-control" id="inpClienteNombre" name="inpClienteNombre" value="" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label"><strong>*</strong> Primer apellido:</label>
+                                    <input type="text" class="form-control" id="inpClientePrimerAp" name="inpClientePrimerAp" value="">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label"><strong>*</strong> Segundo apellido:</label>
+                                    <input type="text" class="form-control" id="inpClienteSegundoAp" name="inpClienteSegundoAp" value="">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Telef&oacute;no: </label>
+                                    <input type="text" class="form-control" id="inpClienteTelefono" name="inpClienteTelefono" value="">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label"><strong>*</strong> Telef&oacute;no celular:</label>
+                                    <input type="text" class="form-control" id="inpClienteCelular" name="inpClienteCelular" value="">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Correo electr&oacute;nico:</label>
+                                    <input type="text" class="form-control" id="inpClienteMail" name="inpClienteMail" value="">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label"><strong>*</strong> Dirección (calle):</label>
+                                    <input type="text" class="form-control" id="inpClienteCalle" name="inpClienteCalle" value="">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label"><strong>*</strong> CP: </label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="inpCP" name="inpCP" value="">
+                                        <button class="btn btn-azul2" type="button" id="btn-cp" name="btn-cp" onclick="CoindicenciasCP(this)"><i class="uil uil-search"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label"><strong>*</strong> Asentamiento:</label>
+                                    <select id="ddlColonia" class="form-select">
+                                        <option>Escoja un asentamiento</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label"><strong>*</strong> Ciudad:</label>
+                                    <input type="text" class="form-control" id="inpClienteCiudad" name="inpClienteCiudad" value="">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label"><strong>*</strong> Municipo:</label>
+                                    <input type="text" class="form-control" id="inpClienteMunicipio" name="inpClienteMunicipio" value="">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label"><strong>*</strong> Estado:</label>
+                                    <input type="text" class="form-control" id="inpClienteEstado" name="inpClienteEstado" value="">
+                                </div>
+
+                                <div class="col-md-3 mt-5">
+                                    <button type="submit" class="btn btn-gris" type="button" id="button-addon2"><i class="uil uil-save"></i> Guardar nuevo cliente</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label"><strong>*</strong> Ciudad:</label>
-                            <input type="text" class="form-control" id="inputAddress" value="">
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label"><strong>*</strong> Municipo:</label>
-                            <input type="text" class="form-control" id="inputAddress" value="">
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label"><strong>*</strong> Estado:</label>
-                            <input type="text" class="form-control" id="inputAddress" value="">
-                        </div>
-
-                        <div class="col-md-3 mt-5">
-                            <button class="btn btn-gris" type="button" id="button-addon2"><i class="uil uil-save"></i> Guardar nuevo cliente</button>
-                        </div>
-
+                        </form>
                     </div>
                 </div>
             </div>

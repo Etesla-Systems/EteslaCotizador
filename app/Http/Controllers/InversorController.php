@@ -26,4 +26,15 @@ class InversorController extends Controller
 
         return view('cotizador.pages.vendedor.individual', compact('vInversores'));
     }
+
+    public function getInversoresSelectos(Request $request)
+    {
+        $array["potenciaReal"] = $request->potenciaReal;
+        $array["numeroPaneles"] = $request->numeroPaneles;
+        $array["potenciaPanel"] = $request->potenciaPanel;
+        $vInversores = $this->inversores->inversores_selectos(['json' => $array]);
+        $vInversores = response()->json($vInversores);
+
+        return $vInversores;
+    }
 }

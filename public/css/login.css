@@ -116,7 +116,7 @@
 {
     width: 30%;
     height: 30%;
-    margin-top: 10%;
+    margin-top: 4.8%;
     margin-left: 34.5%;
 }
 
@@ -134,4 +134,21 @@
 .input1
 {
     height: 43px;
+}
+
+.inputRegister
+{
+    width: 400px;
+    height: 43px;
+}
+
+.inputPass
+{
+    width: 425px;
+    height: 43px;
+}
+
+.sangria
+{
+    margin-left: 4%;
 }
