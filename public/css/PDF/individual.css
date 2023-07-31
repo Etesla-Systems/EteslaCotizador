@@ -1,0 +1,61 @@
+@font-face{
+    font-family: "Nobile-medium";
+    src: url(../../assets/font/Nobile-Medium.ttf);
+}
+
+@font-face{
+    font-family: "Nobile-regular";
+    src: url(../../assets/font/Nobile-Regular.ttf);
+}
+
+@font-face{
+    font-family: "Rubik-Light";
+    src: url(../../assets/font/Rubik-Light.ttf);
+}
+
+@page {
+    margin: 1.27cm 1.27cm;
+    font-family: Rubik-Light;
+}
+
+.tipoNobileMedium
+{
+    font-family: Nobile-medium;
+}
+
+.tipoNobileRegular
+{
+    font-family: Nobile-regular;
+}
+
+.tipoRubik
+{
+    font-family: Rubik-Light;
+}
+
+.logo
+{
+    width: 50%;
+    height: 40%;
+}
+
+.centrado
+{
+    text-align: center;
+    justify-content: center;
+}
+
+.celdaProm
+{
+    width: 15%;
+    height: 10%;
+    border:solid black;
+}
+
+
+.pequena
+{
+    width: 120px;
+    height: 42px;
+}
+
