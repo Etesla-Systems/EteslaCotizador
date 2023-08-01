@@ -1,1 +1,1 @@
-Es necesario instalar la librería JWT con el siguiente comando composer require firebase/php-jwt
+Al clonar el repositorio utilizar el comando "composer update" para que funcione correctamente
