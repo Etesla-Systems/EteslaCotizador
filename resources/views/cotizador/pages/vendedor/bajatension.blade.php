@@ -11,7 +11,7 @@
         <div class="row pb-3 g-3">
             <div
                 class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 border-bottom">
-                <h6>Dato de consumo</h6>
+                <h6>Datos de consumo</h6>
             </div>
             <div class="col-md-6"> <!-- Apartado de selección de tarifa del cliente -->
                 <label class="form-label">Tarifa actual:</label>
