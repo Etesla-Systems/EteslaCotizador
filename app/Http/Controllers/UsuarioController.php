@@ -104,7 +104,7 @@ class UsuarioController extends Controller
             session(['dataUsuario' => $data]);
         }
 
-        return redirect('dashboard')->with('status-success', 'Credenciales correctas.');
+        return redirect('vendedor')->with('status-success', 'Credenciales correctas.');
     }
 
 

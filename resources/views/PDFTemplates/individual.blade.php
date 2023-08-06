@@ -225,7 +225,7 @@
             <tbody>
             @if(!is_null($paneles))
                 <!-- SI LA COTIZACION TIENE *PANELES* -->
-                <tr id="desglocePanel" style="background-color:lightgrey;">
+                <tr id="desglocePanel">
                     <td style="text-align: center;">Panel</td>
                     <td style="text-align: center;">{{ $paneles["vMarca"] }}</td>
                     <td style="text-align: center;">{{ $paneles["noModulos"] }}</td>
@@ -272,7 +272,7 @@
             @endif
             @if(!is_null($estructura["_estructuras"]))
                 <!-- SI LA COTIZACION TIENE *ESTRUCTURAS* -->
-                <tr id="desgloceEstructura" style="background-color:lightgrey;">
+                <tr id="desgloceEstructura">
                     <td style="text-align: center;">Estructura</td>
                     <td id="marcaEstructura" style="text-align: center;">
                         {{ $estructura["_estructuras"]["vMarca"] }}
@@ -316,7 +316,7 @@
             @endif
             @if($totales["otrosTotal"] > 0)
                 <!-- SI LA COTIZACION TIENE *OTROS* -->
-                <tr style="background-color:lightgrey;">
+                <tr>
                     <td style="text-align: center;">Otros</td>
                     <td></td>
                     <td></td>
