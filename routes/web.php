@@ -37,10 +37,6 @@ Route::post('/registrarCliente', 'ClienteController@registrarCliente');
 Route::put('/buscarCliente/{cliente?}','ClienteController@consultarClientePorNombre');
 
 /* --------------- Vista general --------------- */
-Route::get('/dashboard', function () {
-    return view('cotizador.layout.dashboard');
-});
-
 Route::get('/template', function () {
     return view('PDFTemplates.Machotes.individual');
 });

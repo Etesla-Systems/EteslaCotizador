@@ -9,7 +9,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('dashboard') }}" class="nav_link active">
+                    <a href="{{ url('/vendedor') }}" class="nav_link active">
                         <i class='bx bxs-home'></i>
                         <span class="nav_name">Inicio</span>
                     </a>
