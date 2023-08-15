@@ -333,7 +333,7 @@
                 <td style="text-align: center;">Mano de obra</td>
                 <td></td>
                 <td></td>
-                <td style="font-size:10px;">*Instalacion *Servicio *Anclaje *Fijacion</td>
+                <td style="font-size:10px;">*Instalación *Servicio *Anclaje *Fijación</td>
                 @if($PdfConfig["subtotalesDesglozados"] === "true")
                     <td id="costoTotalMO" style="text-align: center;">
                         ${{ number_format($totales["manoDeObra"],2) }} USD

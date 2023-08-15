@@ -43,7 +43,7 @@
                         @endforeach
                     </select>
                     <div class="mt-2">
-                        <label class="form-label">Ingrese la cantidad de paneles</label>
+                        <label class="form-label">Ingrese la cantidad de inversores</label>
                         <input type="text" class="form-control"  id="inpCantInversores"  >
                     </div>
                 </div>
