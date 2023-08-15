@@ -343,21 +343,21 @@ function pintarGrafico(Data){
                     {
                         label: 'Consumo s/Paneles',
                         data: _consumosEnergActualesBim,
-                        backgroundColor: 'rgb(204, 15, 3)',
+                        backgroundColor: 'rgb(255, 137, 32)',
                         borderWidth: 1
                     },
                     //Generacion
                     {
                         label: 'Generacion Paneles',
                         data: _generacionBim,
-                        backgroundColor: 'rgb(8, 37, 103)',
+                        backgroundColor: 'rgb(122, 179, 23)',
                         borderWidth: 1
                     },
                     //Nuevo consumo
                     {
                         label: 'Consumo c/Paneles',
                         data: _consumosEnergNuevosBim,
-                        backgroundColor: 'rgb(122, 179, 23)',
+                        backgroundColor: 'rgb(224, 13, 32)',
                         borderWidth: 1
                     }
                 ]
@@ -387,14 +387,14 @@ function pintarGrafico(Data){
                     {
                         label: 'Pago a CFE s/Paneles',
                         data: _consumosEconActualesBim,
-                        backgroundColor: 'rgb(204, 15, 3)',
+                        backgroundColor: 'rgb(255, 137, 32)',
                         borderWidth: 1
                     },
                     //Generacion
                     {
                         label: 'Pago a CFE c/Paneles',
                         data: _consumosEconNuevosBim,
-                        backgroundColor: 'rgb(122, 179, 23)',
+                        backgroundColor: 'rgb(224, 13, 32)',
                         borderWidth: 1
                     }
                 ]

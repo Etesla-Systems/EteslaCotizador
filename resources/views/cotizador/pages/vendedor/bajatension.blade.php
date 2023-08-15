@@ -494,30 +494,30 @@
 
                                     <tr>
                                         <th></th>
-                                        <th class="celRojo font-white celdaPer ">Consumo s/paneles</th>
-                                        <th class="celAzul font-white celdaPer">Generación</th>
-                                        <th class="celVerde font-white celdaPer ">Consumo c/paneles</th>
+                                        <th class="celNaranja font-white celdaPer ">Consumo s/paneles</th>
+                                        <th class="celVerde font-white celdaPer">Generación</th>
+                                        <th class="celRojo font-white celdaPer ">Consumo c/paneles</th>
                                     </tr>
 
                                     <tr>
                                         <td class="">Mensual</td>
-                                        <td id="tdConsumoActualKwMes" class="tdAnsw celRojo font-white"></td>
-                                        <td id="tdGeneracionKwMes" class="tdAnsw celAzul font-white"></td>
-                                        <td id="tdNuevoConsumoMes" class="tdAnsw celVerde font-white"></td>
+                                        <td id="tdConsumoActualKwMes" class="tdAnsw celNaranja font-white"></td>
+                                        <td id="tdGeneracionKwMes" class="tdAnsw celVerde font-white"></td>
+                                        <td id="tdNuevoConsumoMes" class="tdAnsw celRojo font-white"></td>
                                     </tr>
 
                                     <tr>
                                         <td class="">Bimestral</td>
-                                        <td id="tdConsumoActualKwBim" class="tdAnsw celRojo font-white"></td>
-                                        <td id="tdGeneracionKwBim" class="tdAnsw celAzul font-white"></td>
-                                        <td id="tdNuevoConsumoBim" class="tdAnsw celVerde font-white"></td>
+                                        <td id="tdConsumoActualKwBim" class="tdAnsw celNaranja font-white"></td>
+                                        <td id="tdGeneracionKwBim" class="tdAnsw celVerde font-white"></td>
+                                        <td id="tdNuevoConsumoBim" class="tdAnsw celRojo font-white"></td>
                                     </tr>
 
                                     <tr>
                                         <td class="">Tarifa</td>
-                                        <td id="tdTarifaActual" class="tdAnsw celRojo font-white"></td>
-                                        <td id="tdPorcentajePropuesta" class="tdAnsw celAzul font-white"></td>
-                                        <td id="tdTarifaNueva" class="tdAnsw celVerde font-white"></td>
+                                        <td id="tdTarifaActual" class="tdAnsw celNaranja font-white"></td>
+                                        <td id="tdPorcentajePropuesta" class="tdAnsw celVerde font-white"></td>
+                                        <td id="tdTarifaNueva" class="tdAnsw celRojo font-white"></td>
                                     </tr>
 
                                 </table>
@@ -552,23 +552,23 @@
 
                                     <tr>
                                         <th></th>
-                                        <th class="celRojo font-white celdaPer ">Consumo s/paneles</th>
-                                        <th class="celVerde font-white celdaPer ">Consumo c/paneles</th>
-                                        <th class="celAzul font-white celdaPer">Ahorro</th>
+                                        <th class="celNaranja font-white celdaPer ">Consumo s/paneles</th>
+                                        <th class="celRojo font-white celdaPer ">Consumo c/paneles</th>
+                                        <th class="celVerde font-white celdaPer">Ahorro</th>
                                     </tr>
 
                                     <tr>
                                         <td class="">Mensual</td>
-                                        <td id="tdConsumoActualDinMes" class="tdAnsw celRojo font-white"></td>
-                                        <td id="tdNuevoConsumoDinMes" class="tdAnsw celVerde font-white"></td>
-                                        <td id="tdAhorroDinMes" class="tdAnsw celAzul font-white"></td>
+                                        <td id="tdConsumoActualDinMes" class="tdAnsw celNaranja font-white"></td>
+                                        <td id="tdNuevoConsumoDinMes" class="tdAnsw celRojo font-white"></td>
+                                        <td id="tdAhorroDinMes" class="tdAnsw celVerde font-white"></td>
                                     </tr>
 
                                     <tr>
                                         <td class="">Bimestral</td>
-                                        <td id="tdConsumoActualDinBim" class="tdAnsw celRojo font-white"></td>
-                                        <td id="tdNuevoConsumoDinBim" class="tdAnsw celVerde font-white"></td>
-                                        <td id="tdAhorroDinBim" class="tdAnsw celAzul font-white"></td>
+                                        <td id="tdConsumoActualDinBim" class="tdAnsw celNaranja font-white"></td>
+                                        <td id="tdNuevoConsumoDinBim" class="tdAnsw celRojo font-white"></td>
+                                        <td id="tdAhorroDinBim" class="tdAnsw celVerde font-white"></td>
                                     </tr>
 
                                     <tr>

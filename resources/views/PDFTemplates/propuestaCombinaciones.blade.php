@@ -19,7 +19,7 @@
         left: 0cm;
         right: 0cm;
         height: 19px;
-        background-color: #5FC055;
+        background-color: #4474C2;
     }
 
     /* Contenedores */
@@ -103,7 +103,7 @@
     .tabFinanciamiento {
         width: 100%;
         color: #fff;
-        background-color: #3A565E;
+        background-color: #808D99;
         border-collapse: collapse;
         border-radius: 20px;
         overflow: hidden;
@@ -194,7 +194,7 @@
         text-align: center;
         border-width: 3px;
         border-style: solid;
-        border-color: green;
+        border-color: #7ab317;
         border-top-left-radius: 30px 30px;
         border-top-right-radius: 30px 30px;
         border-bottom-left-radius: 30px 30px;
@@ -202,7 +202,7 @@
     }
 
     .card-header {
-        background: green;
+        background: #7ab317;
         color: #FFFFFF;
         margin: -20px;
         padding: 10px;
@@ -222,10 +222,29 @@
         border-bottom-left-radius: 30px 30px;
         border-bottom-right-radius: 30px 30px;
     }
+
+    .celda-costos {
+        background-color: #7ab317;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .banderas
+    {
+        width: 4%; /* o el porcentaje deseado */
+        height: auto;
+    }
+
+    .margins
+    {
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
 </style>
 <body>
 
-<div class="container-fluid" style="border-top: 10px solid #5576F2;">
+<div class="container-fluid" style="border-top: 10px solid #4474C2;">
     <table>
         <tr>
             <td>
@@ -274,32 +293,32 @@
         <table class="table-costos-proyecto">
             <thead>
             <tr>
-                <th scope="col">TIPO</th>
-                <th scope="col">MARCA</th>
-                <th scope="col">CANTIDAD</th>
-                <th scope="col">NOMBRE</th>
-                <th scope="col">TOTAL</th>
+                <th scope="col" class="celda-costos">TIPO</th>
+                <th scope="col" class="celda-costos">MARCA</th>
+                <th scope="col" class="celda-costos">CANTIDAD</th>
+                <th scope="col" class="celda-costos">NOMBRE</th>
+                <th scope="col" class="celda-costos">TOTAL</th>
             </tr>
             </thead>
             <tbody>
             <tr id="desglocePanel" style="background-color:#F2F1F0;">
-                <td>Panel</td>
-                <td id="marcaPanel">{{ $propuesta["paneles"]["vMarca"] }}</td>
-                <td id="cantidadPanel">{{ $propuesta["paneles"]["noModulos"] }}</td>
-                <td id="modeloPanel" style="font-size: 13px;">{{ $propuesta["paneles"]["nombre"] }}</td>
+                <td style="text-align: center;">Panel</td>
+                <td style="text-align: center;" id="marcaPanel">{{ $propuesta["paneles"]["vMarca"] }}</td>
+                <td style="text-align: center;" id="cantidadPanel">{{ $propuesta["paneles"]["noModulos"] }}</td>
+                <td style="text-align: center;" id="modeloPanel" style="font-size: 13px;">{{ $propuesta["paneles"]["nombre"] }}</td>
                 @if($PdfConfig["subtotalesDesglozados"] === "true")
-                    <td id="costoTotalPanel">${{ number_format($propuesta["paneles"]["costoTotal"],2) }} USD</td>
+                    <td style="text-align: center;" id="costoTotalPanel">${{ number_format($propuesta["paneles"]["costoTotal"],2) }} USD</td>
                 @else
-                    <td id="costoTotalPanel"></td>
+                    <td style="text-align: center;" id="costoTotalPanel"></td>
                 @endif
             </tr>
             <tr id="desgloceInversor">
-                <td>Inversor</td>
-                <td id="marcaInversor">
+                <td style="text-align: center;">Inversor</td>
+                <td id="marcaInversor" style="text-align: center;">
                     {{ $propuesta["inversores"]["vMarca"] }}
                 </td>
                 @if($propuesta["inversores"]["combinacion"] === "true")
-                    <td colspan="2">
+                    <td colspan="2" style="text-align: center;">
                         <p style="font-size:10px;">
                             {{ $propuesta["inversores"]["numeroDeInversores"]["MicroUno"]["vNombreMaterialFot"] }}
                             : {{ $inversores["numeroDeInversores"]["MicroUno"]["numeroDeInversores"] }}
@@ -310,68 +329,68 @@
                         </p>
                     </td>
                 @else
-                    <td id="cantidadInversor">
+                    <td id="cantidadInversor" style="text-align: center;">
                         {{ $propuesta["inversores"]["numeroDeInversores"] }}
                     </td>
-                    <td id="modeloInversor" style="font-size: 13px;">
+                    <td id="modeloInversor" style="font-size: 13px; text-align: center;">
                         {{ $propuesta["inversores"]["vNombreMaterialFot"] }}
                     </td>
                 @endif
                 @if($PdfConfig["subtotalesDesglozados"] === "true")
-                    <td id="costoTotalInversor">
+                    <td id="costoTotalInversor" style="text-align: center;">
                         ${{ number_format($propuesta["inversores"]["costoTotal"],2) }} USD
                     </td>
                 @else
-                    <td id="costoTotalInversor"></td>
+                    <td id="costoTotalInversor" style="text-align: center;"></td>
                 @endif
             </tr>
             <tr id="desgloceEstructura" style="background-color:#F2F1F0;">
-                <td>Estructura</td>
-                <td id="marcaEstructura">
+                <td style="text-align: center;">Estructura</td>
+                <td id="marcaEstructura" style="text-align: center;">
                     {{ $propuesta["estructura"]["_estructuras"]["vMarca"] }}
                 </td>
-                <td id="cantidadEstructura">
+                <td id="cantidadEstructura" style="text-align: center;">
                     {{ $propuesta["estructura"]["cantidad"] }}
                 </td>
-                <td>Estructura de aluminio</td>
+                <td style="text-align: center;">Estructura de aluminio</td>
                 @if($PdfConfig["subtotalesDesglozados"] === "true")
-                    <td id="costoTotalEstructura">${{ number_format($propuesta["estructura"]["costoTotal"],2) }}USD
+                    <td id="costoTotalEstructura" style="text-align: center;">${{ number_format($propuesta["estructura"]["costoTotal"],2) }}USD
                     </td>
                 @else
-                    <td id="costoTotalEstructura"></td>
+                    <td id="costoTotalEstructura" style="text-align: center;"></td>
                 @endif
             </tr>
             <tr>
-                <td>Mano de obra</td>
+                <td style="text-align: center;">Mano de obra</td>
                 <td></td>
                 <td></td>
-                <td style="font-size:10px;">*Instalacion *Servicio *Anclaje *Fijacion</td>
+                <td style="font-size:10px; text-align: center;">*Instalación *Servicio *Anclaje *Fijación</td>
                 @if($PdfConfig["subtotalesDesglozados"] === "true")
-                    <td id="costoTotalMO">
+                    <td id="costoTotalMO" style="text-align: center;">
                         ${{ number_format($propuesta["totales"]["manoDeObra"],2) }} USD
                     </td>
                 @else
-                    <td id="costoTotalMO"></td>
+                    <td id="costoTotalMO" style="text-align: center;"></td>
                 @endif
             </tr>
             <tr style="background-color:#F2F1F0;">
-                <td>Otros</td>
+                <td style="text-align: center;">Otros</td>
                 <td></td>
                 <td></td>
-                <td style="font-size:10px;">*Cableado *Protecciones *Tramite CFE *Monitoreo PostVenta (permanente)</td>
+                <td style="font-size:10px; text-align: center;">*Cableado *Protecciones *Tramite CFE *Monitoreo PostVenta (permanente)</td>
                 @if($PdfConfig["subtotalesDesglozados"] === "true")
-                    <td id="costoTotalOtros">
+                    <td id="costoTotalOtros" style="text-align: center;">
                         ${{ number_format($propuesta["totales"]["otrosTotal"],2) }} USD
                     </td>
                 @else
-                    <td id="costoTotalOtros"></td>
+                    <td id="costoTotalOtros" style="text-align: center;"></td>
                 @endif
             </tr>
             <tr>
                 <td></td>
                 <td></td>
                 @if($propuesta["descuento"]["porcentaje"] >= 1)
-                    <td id="tdDescuento" style="background-color:green;">
+                    <td id="tdDescuento" style="background-color:green; text-align: center;">
                         <p style="text-align:center; color:white; font-weight:bolder; font-size:12px;">
                             Descuento ({{ $propuesta["descuento"]["porcentaje"] }}%)
                         </p>
@@ -379,19 +398,19 @@
                 @else
                     <td></td>
                 @endif
-                <td align="center">
-                    <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/banderas/estados-unidos.png'))) }}"/>
+                <td align="center" style="text-align: center;">
+                    <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/USA_1.png'))) }}" class="banderas margins"/>
                 </td>
-                <td align="center">
-                    <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/banderas/mexico.png'))) }}"/>
+                <td align="center" style="text-align: center;">
+                    <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/MEX_1.png'))) }}" class="banderas margins"/>
                 </td>
             </tr>
             <tr style="background-color: #E8E8E8;">
-                <td><strong>Subtotal</strong></td>
+                <td style="text-align: center;"><strong>Subtotal</strong></td>
                 <td></td>
                 @if($propuesta["descuento"]["porcentaje"] > 0)
                     <td id="descuentoUSD"
-                        style="border-right:solid green; border-left:solid green; border-bottom:solid green;">
+                        style="border-right:solid green; border-left:solid green; border-bottom:solid green; text-align: center;">
                         <p style="font-weight:bolder; text-align:center; font-size:15px; background-color:#FFF66D;">
                             ${{ number_format($propuesta["descuento"]["descuento"],2) }} USD
                         </p>
@@ -399,21 +418,21 @@
                 @else
                     <td></td>
                 @endif
-                <td id="subtotalSinIVAUSD" align="center">
+                <td id="subtotalSinIVAUSD" align="center" style="text-align: center;">
                     ${{ number_format($propuesta["totales"]["precio"],2) }} USD
                 </td>
-                <td id="subtotalSinIVAMXN" align="center">
+                <td id="subtotalSinIVAMXN" align="center" style="text-align: center;">
                     ${{ number_format($propuesta["totales"]["precioMXNSinIVA"],2) }} MXN
                 </td>
             </tr>
             <tr style="background-color: #E8E8E8;">
-                <td><strong>Total</strong></td>
+                <td style="text-align: center;"><strong>Total</strong></td>
                 <td></td>
                 <td></td>
-                <td id="totalConIVAUSD" align="center">
+                <td id="totalConIVAUSD" align="center" style="text-align: center;">
                     ${{ number_format($propuesta["totales"]["precioMasIVA"],2) }} USD
                 </td>
-                <td id="totalConIVAMXN" align="center">
+                <td id="totalConIVAMXN" align="center" style="text-align: center;">
                     ${{ number_format($propuesta["totales"]["precioMXNConIVA"],2) }} MXN
                 </td>
             </tr>
@@ -433,23 +452,23 @@
         <tr>
             <td id="imgLogoPanel" align="center" style="border: none; width: 110px; height: 90px;">
                 @php($image = $propuesta['paneles']['vMarca'] . '.png')
-                <img style="width:100%; height:auto;"
+                <img style="width: 90%;  height: auto;"
                      src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/equipos/logos/panel/' . $image))) }}">
             </td>
             <td id="imgLogoInversor" align="center" style="border: none; width: 110px; height: 90px;">
                 @php($image = $propuesta['inversores']['vMarca'] . '.png')
-                <img style="width:100%; height:auto;"
+                <img style="width: 90%;  height: auto;"
                      src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/equipos/logos/inversor/' . $image))) }}">
             </td>
             <td id="imgLogoInversor" align="center" style="border: none; width: 110px; height: 90px;">
                 @php($image = $propuesta['estructura']['_estructuras']['vMarca'] . '.png')
-                <img style="width:100%; height:auto;"
+                <img style="width: 90%;  height: auto;"
                      src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/equipos/logos/estructura/' . $image))) }}">
             </td>
         </tr>
     </table>
 
-    <hr class="linea-division" style="background-color:#5576F2;">
+    <hr class="linea-division" style="background-color:#4474C2;">
 
     <table class="table-contenedor">
         <tr>
@@ -469,7 +488,7 @@
                                 ${{ number_format($propuesta["power"]["objConsumoEnPesos"]["pagoPromedioBimestralConIva"], 2) }}
                             </p>
                             <hr class="linea-division"
-                                style="background-color:green; margin-top:-17px; margin-left:-20px; margin-right:-20px; height:15px;">
+                                style="background-color:#7ab317; margin-top:-17px; margin-left:-20px; margin-right:-20px; height:15px;">
                             <img height="19px" width="19px" style="margin-top:2px; margin-left:-170px;"
                                  src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/icon/flecha.png'))) }}"/>
                             <p style="font-size:14px; text-align:center; margin-top:-10px;">
@@ -478,7 +497,7 @@
                             <img height="19px" width="19px" style="margin-left:170px; margin-top:-30px;"
                                  src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/icon/flecha.png'))) }}"/>
                             <hr class="linea-division"
-                                style="background-color:green; margin-top:-5px; margin-left:-20px; margin-right:-20px; height:15px;">
+                                style="background-color:#7ab317; margin-top:-5px; margin-left:-20px; margin-right:-20px; height:15px;">
                             <p style="font-weight:bolder; margin-top:25px; font-size:19px;">
                                 {{ number_format($propuesta["power"]["_consumos"]["_promCons"]["promConsumosBimestrales"]) }}
                                 Kw
@@ -505,7 +524,7 @@
                                 ${{ number_format($propuesta["power"]["objGeneracionEnpesos"]["pagoPromedioBimestralConIva"] ,2) }}
                             </p>
                             <hr class="linea-division"
-                                style="background-color:green; margin-top:-17px; margin-left:-20px; margin-right:-20px; height:15px;">
+                                style="background-color:#7ab317; margin-top:-17px; margin-left:-20px; margin-right:-20px; height:15px;">
                             <img height="19px" width="19px" style="margin-top:2px; margin-left:-170px;"
                                  src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/icon/flecha.png'))) }}"/>
                             <p style="font-size:14px; text-align:center; margin-top:-10px;">
@@ -514,7 +533,7 @@
                             <img height="19px" width="19px" style="margin-left:170px; margin-top:-30px;"
                                  src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/icon/flecha.png'))) }}"/>
                             <hr class="linea-division"
-                                style="background-color:green; margin-top:-5px; margin-left:-20px; margin-right:-20px; height:15px;">
+                                style="background-color:#7ab317; margin-top:-5px; margin-left:-20px; margin-right:-20px; height:15px;">
                             <p style="font-weight:bolder; text-align:center; margin-top:25px; font-size:19px;">
                                 {{ number_format($propuesta["power"]["nuevosConsumos"]["promedioNuevoConsumoBimestral"],2) }}
                                 Kw
@@ -532,7 +551,7 @@
                     <img height="32px" width="32px" style="margin-top:15px; margin-left:-30px;"
                          src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/icon/generation-sun-electricity.png'))) }}"/>
                     <h3 style="margin-left:-50px;">Generación bimestral promedio:</h3>
-                    <h2 style="color:#3333FF; margin-left:-50px;">{{ $propuesta["power"]["generacion"]["promeDGeneracionBimestral"] }}
+                    <h2 style="color:#082567; margin-left:-50px;">{{ $propuesta["power"]["generacion"]["promeDGeneracionBimestral"] }}
                         kWh</h2>
                 </div>
             </td>
@@ -564,8 +583,8 @@
             <thead style="color:#FFFFFF;">
             <tr>
                 <th id="td-invisible"
-                    style="border-left:0px; border-top:0px; border-bottom:0px; background-color:#FFFFFF"></th>
-                <th scope="col" style="background-color:#112B3C;">
+                    style="border-left:0px; border-top:0px; border-bottom:0px;text-align: center; background-color:#FFFFFF"></th>
+                <th scope="col" style="background-color:#112B3C; text-align: center;">
                     @if($propuestaSeleccionada === "combinacionEconomica")
                         <img height="29x" width="29x"
                              src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/complementos/estrella.png'))) }}"
@@ -573,7 +592,7 @@
                     @endif
                     <strong class="title-tab-comparativa">Economica</strong>
                 </th>
-                <th scope="col" style="background-color:#205375;">
+                <th scope="col" style="background-color:#205375; text-align: center;">
                     @if($propuestaSeleccionada === "combinacionMediana")
                         <img height="29x" width="29x"
                              src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/complementos/estrella.png'))) }}"
@@ -581,7 +600,7 @@
                     @endif
                     <strong class="title-tab-comparativa">Recomendada</strong>
                 </th>
-                <th scope="col" style="background-color:#F66B0E;">
+                <th scope="col" style="background-color:#F66B0E; text-align: center;">
                     @if($propuestaSeleccionada === "combinacionOptima")
                         <img height="29x" width="29x"
                              src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/complementos/estrella.png'))) }}"
@@ -593,16 +612,16 @@
             </thead>
             <tbody>
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     Potencia instalada
                 </td>
-                <td id="tdPotenciaInstaladaA" class="text-tab-comparativa">
+                <td id="tdPotenciaInstaladaA" class="text-tab-comparativa" style="text-align: center;">
                     {{ number_format($combinacionEconomica["paneles"]["potenciaReal"],2) }} Kw
                 </td>
-                <td id="tdPotenciaInstaladaB" class="text-tab-comparativa">
+                <td id="tdPotenciaInstaladaB" class="text-tab-comparativa" style="text-align: center;">
                     {{ number_format($combinacionMediana["paneles"]["potenciaReal"],2) }} Kw
                 </td>
-                <td id="tdPotenciaInstaladaC" class="text-tab-comparativa">
+                <td id="tdPotenciaInstaladaC" class="text-tab-comparativa" style="text-align: center;">
                     {{ number_format($combinacionOptima["paneles"]["potenciaReal"],2) }} Kw
                 </td>
             </tr>
@@ -611,30 +630,30 @@
         <table id="panel" class="table-comparative" style="margin-top:20px; width: 100%;">
             <tr>
                 <td id="td-invisible"
-                    style="border-left:0px; border-top:0px; border-bottom:0px; background-color:#FFFFFF"></td>
-                <td id="tdPropuestaA" style="background-color:#112B3C; font-weight:bolder; color:#FFFFFF;">Panel</td>
-                <td id="tdPropuestaB" style="background-color:#205375; font-weight:bolder; color:#FFFFFF;">Panel</td>
-                <td id="tdPropuestaC" style="background-color:#F66B0E; font-weight:bolder; color:#FFFFFF;">Panel</td>
+                    style="border-left:0px; border-top:0px; border-bottom:0px; text-align: center; background-color:#FFFFFF"></td>
+                <td id="tdPropuestaA" style="background-color:#112B3C; text-align: center; font-weight:bolder; color:#FFFFFF;">Panel</td>
+                <td id="tdPropuestaB" style="background-color:#205375; text-align: center; font-weight:bolder; color:#FFFFFF;">Panel</td>
+                <td id="tdPropuestaC" style="background-color:#F66B0E; text-align: center; font-weight:bolder; color:#FFFFFF;">Panel</td>
             </tr>
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     Marca
                 </td>
-                <td id="tdMarcaPanelA">
+                <td id="tdMarcaPanelA" style="text-align: center;">
                     <div class="divImgLogos">
                         @php($image = $combinacionEconomica["paneles"]["marca"] . '.png')
                         <img id="imgPanelA" class="imgLogos"
                              src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/equipos/logos/panel/' . $image))) }}">
                     </div>
                 </td>
-                <td id="tdMarcaPanelB">
+                <td id="tdMarcaPanelB" style="text-align: center;">
                     <div class="divImgLogos">
                         @php($image = $combinacionMediana["paneles"]["marca"] . '.png')
                         <img id="imgPanelB" class="imgLogos"
                              src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/equipos/logos/panel/' . $image))) }}">
                     </div>
                 </td>
-                <td id="tdMarcaPanelC">
+                <td id="tdMarcaPanelC" style="text-align: center;">
                     <div class="divImgLogos">
                         @php($image = $combinacionOptima["paneles"]["marca"] . '.png')
                         <img id="imgPanelC" class="imgLogos"
@@ -643,46 +662,46 @@
                 </td>
             </tr>
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     Modelo
                 </td>
-                <td id="tdModeloPanelA" class="text-tab-comparativa">
+                <td id="tdModeloPanelA" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionEconomica["paneles"]["nombre"] }}
                 </td>
-                <td id="tdModeloPanelB" class="text-tab-comparativa">
+                <td id="tdModeloPanelB" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionMediana["paneles"]["nombre"] }}
                 </td>
-                <td id="tdModeloPanelC" class="text-tab-comparativa">
+                <td id="tdModeloPanelC" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionOptima["paneles"]["nombre"] }}
                 </td>
             </tr>
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     Cantidad
                 </td>
-                <td id="tdCantidadPanelA" class="text-tab-comparativa">
+                <td id="tdCantidadPanelA" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionEconomica["paneles"]["noModulos"] }}
                 </td>
-                <td id="tdCantidadPanelB" class="text-tab-comparativa">
+                <td id="tdCantidadPanelB" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionMediana["paneles"]["noModulos"] }}
                 </td>
-                <td id="tdCantidadPanelC" class="text-tab-comparativa">
+                <td id="tdCantidadPanelC" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionOptima["paneles"]["noModulos"] }}
                 </td>
             </tr>
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     Origen
                 </td>
-                <td id="tdOrigenPanelA">
+                <td id="tdOrigenPanelA" style="text-align: center;">
                     @php($image = $combinacionEconomica['paneles']['origen'] . '.png')
                     <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/banderas/' . $image))) }}">
                 </td>
-                <td id="tdOrigenPanelB">
+                <td id="tdOrigenPanelB" style="text-align: center;">
                     @php($image = $combinacionMediana['paneles']['origen'] . '.png')
                     <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/banderas/' . $image))) }}">
                 </td>
-                <td id="tdOrigenPanelC">
+                <td id="tdOrigenPanelC" style="text-align: center;">
                     @php($image = $combinacionOptima['paneles']['origen'] . '.png')
                     <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/banderas/' . $image))) }}">
                 </td>
@@ -691,30 +710,30 @@
         <table id="inversor" class="table-comparative" style="margin-top:20px;">
             <tr>
                 <td id="td-invisible"
-                    style="border-left:0px; border-top:0px; border-bottom:0px; background-color:#FFFFFF"></td>
-                <td id="tdPropuestaA" style="background-color:#112B3C; font-weight:bolder; color:#FFFFFF;">Inversor</td>
-                <td id="tdPropuestaB" style="background-color:#205375; font-weight:bolder; color:#FFFFFF;">Inversor</td>
-                <td id="tdPropuestaC" style="background-color:#F66B0E; font-weight:bolder; color:#FFFFFF;">Inversor</td>
+                    style="border-left:0px; text-align: center; border-top:0px; border-bottom:0px; background-color:#FFFFFF"></td>
+                <td id="tdPropuestaA" style="background-color:#112B3C; text-align: center; font-weight:bolder; color:#FFFFFF;">Inversor</td>
+                <td id="tdPropuestaB" style="background-color:#205375; text-align: center; font-weight:bolder; color:#FFFFFF;">Inversor</td>
+                <td id="tdPropuestaC" style="background-color:#F66B0E; text-align: center; font-weight:bolder; color:#FFFFFF;">Inversor</td>
             </tr>
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     Marca
                 </td>
-                <td id="tdMarcaInversorA">
+                <td id="tdMarcaInversorA" style="text-align: center;">
                     <div class="divImgLogos">
                         @php($image = $combinacionEconomica["inversores"]["marca"] . '.png')
                         <img id="imgInversorA" class="imgLogos"
                              src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/equipos/logos/inversor/' . $image))) }}">
                     </div>
                 </td>
-                <td id="tdMarcaInversorB">
+                <td id="tdMarcaInversorB" style="text-align: center;">
                     <div class="divImgLogos">
                         @php($image = $combinacionMediana["inversores"]["marca"] . '.png')
                         <img id="imgInversorB" class="imgLogos"
                              src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/equipos/logos/inversor/' . $image))) }}">
                     </div>
                 </td>
-                <td id="tdMarcaInversorC">
+                <td id="tdMarcaInversorC" style="text-align: center;">
                     <div class="divImgLogos">
                         @php($image = $combinacionOptima["inversores"]["marca"] . '.png')
                         <img id="imgInversorC" class="imgLogos"
@@ -723,60 +742,60 @@
                 </td>
             </tr>
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     Modelo
                 </td>
-                <td id="tdModeloInversorA" class="text-tab-comparativa">
+                <td id="tdModeloInversorA" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionEconomica["inversores"]["vNombreMaterialFot"] }}
                 </td>
-                <td id="tdModeloInversorB" class="text-tab-comparativa">
+                <td id="tdModeloInversorB" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionMediana["inversores"]["vNombreMaterialFot"] }}
                 </td>
-                <td id="tdModeloInversorC" class="text-tab-comparativa">
+                <td id="tdModeloInversorC" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionOptima["inversores"]["vNombreMaterialFot"] }}
                 </td>
             </tr>
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     Cantidad
                 </td>
-                <td id="tdCantidadInversorA" class="text-tab-comparativa">
+                <td id="tdCantidadInversorA" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionEconomica["inversores"]["numeroDeInversores"] }}
                 </td>
-                <td id="tdCantidadInversorB" class="text-tab-comparativa">
+                <td id="tdCantidadInversorB" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionMediana["inversores"]["numeroDeInversores"] }}
                 </td>
-                <td id="tdCantidadInversorC" class="text-tab-comparativa">
+                <td id="tdCantidadInversorC" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionOptima["inversores"]["numeroDeInversores"] }}
                 </td>
             </tr>
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     Potencia
                 </td>
-                <td id="tdPotenciaInversorA" class="text-tab-comparativa">
+                <td id="tdPotenciaInversorA" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionEconomica["inversores"]["fPotencia"] }} W
                 </td>
-                <td id="tdPotenciaInversorB" class="text-tab-comparativa">
+                <td id="tdPotenciaInversorB" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionMediana["inversores"]["fPotencia"] }} W
                 </td>
-                <td id="tdPotenciaInversorC" class="text-tab-comparativa">
+                <td id="tdPotenciaInversorC" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionOptima["inversores"]["fPotencia"] }} W
                 </td>
             </tr>
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     Origen
                 </td>
-                <td id="tdOrigenInversorA">
+                <td id="tdOrigenInversorA" style="text-align: center;">
                     @php($image = $combinacionEconomica['inversores']['origen'] . '.png')
                     <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/banderas/' . $image))) }}">
                 </td>
-                <td id="tdOrigenInversorB">
+                <td id="tdOrigenInversorB" style="text-align: center;">
                     @php($image = $combinacionMediana['inversores']['origen'] . '.png')
                     <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/banderas/' . $image))) }}">
                 </td>
-                <td id="tdOrigenInversorC">
+                <td id="tdOrigenInversorC" style="text-align: center;">
                     @php($image = $combinacionOptima['inversores']['origen'] . '.png')
                     <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/banderas/' . $image))) }}">
                 </td>
@@ -785,33 +804,33 @@
         <table id="estructura" class="table-comparative" style="margin-top:20px;">
             <tr>
                 <td id="td-invisible"
-                    style="border-left:0px; border-top:0px; border-bottom:0px; background-color:#FFFFFF"></td>
-                <td id="tdPropuestaA" style="background-color:#112B3C; font-weight:bolder; color:#FFFFFF;">Estructura
+                    style="border-left:0px; border-top:0px; text-align: center; border-bottom:0px; background-color:#FFFFFF"></td>
+                <td id="tdPropuestaA" style="background-color:#112B3C; text-align: center; font-weight:bolder; color:#FFFFFF;">Estructura
                 </td>
-                <td id="tdPropuestaB" style="background-color:#205375; font-weight:bolder; color:#FFFFFF;">Estructura
+                <td id="tdPropuestaB" style="background-color:#205375; text-align: center; font-weight:bolder; color:#FFFFFF;">Estructura
                 </td>
-                <td id="tdPropuestaC" style="background-color:#F66B0E; font-weight:bolder; color:#FFFFFF;">Estructura
+                <td id="tdPropuestaC" style="background-color:#F66B0E; text-align: center; font-weight:bolder; color:#FFFFFF;">Estructura
                 </td>
             </tr>
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     Marca
                 </td>
-                <td id="tdMarcaEstructuraA">
+                <td id="tdMarcaEstructuraA" style="text-align: center;">
                     <div class="divImgLogos">
                         @php($image = $combinacionEconomica['estructura']['marca'] . '.png')
                         <img id="imgEstructuraA" class="imgLogos"
                              src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/equipos/logos/estructura/' . $image))) }}">
                     </div>
                 </td>
-                <td id="tdMarcaEstructuraB">
+                <td id="tdMarcaEstructuraB" style="text-align: center;">
                     <div class="divImgLogos">
                         @php($image = $combinacionMediana['estructura']['marca'] . '.png')
                         <img id="imgEstructuraB" class="imgLogos"
                              src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/equipos/logos/estructura/' . $image))) }}">
                     </div>
                 </td>
-                <td id="tdMarcaEstructuraC">
+                <td id="tdMarcaEstructuraC" style="text-align: center;">
                     <div class="divImgLogos">
                         @php($image = $combinacionOptima['estructura']['marca'] . '.png')
                         <img id="imgEstructuraC" class="imgLogos"
@@ -820,46 +839,46 @@
                 </td>
             </tr>
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     Modelo
                 </td>
-                <td id="tdModeloEstructuraA" class="text-tab-comparativa">
+                <td id="tdModeloEstructuraA" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionEconomica["estructura"]["marca"] }}
                 </td>
-                <td id="tdModeloEstructuraB" class="text-tab-comparativa">
+                <td id="tdModeloEstructuraB" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionMediana["estructura"]["marca"] }}
                 </td>
-                <td id="tdModeloEstructuraC" class="text-tab-comparativa">
+                <td id="tdModeloEstructuraC" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionOptima["estructura"]["marca"] }}
                 </td>
             </tr>
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     Cantidad
                 </td>
-                <td id="tdCantidadEstructuraA" class="text-tab-comparativa">
+                <td id="tdCantidadEstructuraA" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionEconomica["estructura"]["cantidad"] }}
                 </td>
-                <td id="tdCantidadEstructuraB" class="text-tab-comparativa">
+                <td id="tdCantidadEstructuraB" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionMediana["estructura"]["cantidad"] }}
                 </td>
-                <td id="tdCantidadEstructuraC" class="text-tab-comparativa">
+                <td id="tdCantidadEstructuraC" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionOptima["estructura"]["cantidad"] }}
                 </td>
             </tr>
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     Origen
                 </td>
-                <td id="tdOrigenEstructuraA">
+                <td id="tdOrigenEstructuraA" style="text-align: center;">
                     @php($image = $combinacionEconomica['estructura']['origen'] . '.png')
                     <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/banderas/' . $image))) }}">
                 </td>
-                <td id="tdOrigenEstructuraB">
+                <td id="tdOrigenEstructuraB" style="text-align: center;">
                     @php($image = $combinacionMediana['estructura']['origen'] . '.png')
                     <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/banderas/' . $image))) }}">
                 </td>
-                <td id="tdOrigenEstructuraC">
+                <td id="tdOrigenEstructuraC" style="text-align: center;">
                     @php($image = $combinacionOptima['estructura']['origen'] . '.png')
                     <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/banderas/' . $image))) }}">
                 </td>
@@ -868,13 +887,13 @@
         <table id="ahorro" class="table-comparative" style="margin-top:20px;">
             <tr>
                 <td id="td-invisible"
-                    style="border-left:0px; border-top:0px; border-bottom:0px; background-color:#FFFFFF"></td>
-                <td id="tdPropuestaA" style="background-color:#112B3C; font-weight:bolder; color:#FFFFFF;">Ahorro</td>
-                <td id="tdPropuestaB" style="background-color:#205375; font-weight:bolder; color:#FFFFFF;">Ahorro</td>
-                <td id="tdPropuestaC" style="background-color:#F66B0E; font-weight:bolder; color:#FFFFFF;">Ahorro</td>
+                    style="border-left:0px; text-align: center; border-top:0px; border-bottom:0px; background-color:#FFFFFF"></td>
+                <td id="tdPropuestaA" style="background-color:#112B3C; text-align: center; font-weight:bolder; color:#FFFFFF;">Ahorro</td>
+                <td id="tdPropuestaB" style="background-color:#205375; text-align: center; font-weight:bolder; color:#FFFFFF;">Ahorro</td>
+                <td id="tdPropuestaC" style="background-color:#F66B0E; text-align: center; font-weight:bolder; color:#FFFFFF;">Ahorro</td>
             </tr>
             <tr>
-                <td colspan="4" class="text-tab-comparativa">
+                <td colspan="4" class="text-tab-comparativa" style="text-align: center;">
                     <strong class="title-tab-comparativa">Consumo sin Paneles</strong>
                     {{ number_format($propuesta["promedioConsumosBimestrales"],2) }} kw |
                     ${{ number_format($propuesta["power"]["objConsumoEnPesos"]["pagoPromedioBimestral"],2) }} MXN
@@ -882,46 +901,46 @@
                 </td>
             </tr>
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     % de generacion
                 </td>
-                <td id="tdPorcentajePropuestaA" class="text-tab-comparativa">
+                <td id="tdPorcentajePropuestaA" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionEconomica["power"]["porcentajePotencia"] }}%
                 </td>
-                <td id="tdPorcentajePropuestaB" class="text-tab-comparativa">
+                <td id="tdPorcentajePropuestaB" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionMediana["power"]["porcentajePotencia"] }}%
                 </td>
-                <td id="tdPorcentajePropuestaC" class="text-tab-comparativa">
+                <td id="tdPorcentajePropuestaC" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionOptima["power"]["porcentajePotencia"] }}%
                 </td>
             </tr>
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     Nuevo consumo energetico
                 </td>
-                <td id="tdNewConsumoEnergeticoA" class="text-tab-comparativa">
+                <td id="tdNewConsumoEnergeticoA" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionEconomica["power"]["nuevosConsumos"]["promedioNuevoConsumoBimestral"] }} Kw/bim
                 </td>
-                <td id="tdNewConsumoEnergeticoB" class="text-tab-comparativa">
+                <td id="tdNewConsumoEnergeticoB" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionMediana["power"]["nuevosConsumos"]["promedioNuevoConsumoBimestral"] }} Kw/bim
                 </td>
-                <td id="tdNewConsumoEnergeticoC" class="text-tab-comparativa">
+                <td id="tdNewConsumoEnergeticoC" class="text-tab-comparativa" style="text-align: center;">
                     {{ $combinacionOptima["power"]["nuevosConsumos"]["promedioNuevoConsumoBimestral"] }} Kw/bim
                 </td>
             </tr>
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     Nuevo pago de luz
                 </td>
-                <td id="tdNewConsumoEconomicoA" class="text-tab-comparativa">
+                <td id="tdNewConsumoEconomicoA" class="text-tab-comparativa" style="text-align: center;">
                     ${{ number_format($combinacionEconomica["power"]["objGeneracionEnpesos"]["pagoPromedioBimestralConIva"],2) }}
                     MXN / bim
                 </td>
-                <td id="tdNewConsumoEconomicoB" class="text-tab-comparativa">
+                <td id="tdNewConsumoEconomicoB" class="text-tab-comparativa" style="text-align: center;">
                     ${{ number_format($combinacionMediana["power"]["objGeneracionEnpesos"]["pagoPromedioBimestralConIva"],2) }}
                     MXN / bim
                 </td>
-                <td id="tdNewConsumoEconomicoC" class="text-tab-comparativa">
+                <td id="tdNewConsumoEconomicoC" class="text-tab-comparativa" style="text-align: center;">
                     ${{ number_format($combinacionOptima["power"]["objGeneracionEnpesos"]["pagoPromedioBimestralConIva"],2) }}
                     MXN / bim
                 </td>
@@ -930,69 +949,69 @@
         <table id="totales" class="table-comparative" style="margin-top:20px;">
             <tr>
                 <td id="td-invisible"
-                    style="border-left:0px; border-top:0px; border-bottom:0px; background-color:#FFFFFF"></td>
-                <td id="tdPropuestaA" style="background-color:#112B3C; font-weight:bolder; color:#FFFFFF;">Totales</td>
-                <td id="tdPropuestaB" style="background-color:#205375; font-weight:bolder; color:#FFFFFF;">Totales</td>
-                <td id="tdPropuestaC" style="background-color:#F66B0E; font-weight:bolder; color:#FFFFFF;">Totales</td>
+                    style="border-left:0px; border-top:0px; text-align: center; border-bottom:0px; background-color:#FFFFFF"></td>
+                <td id="tdPropuestaA" style="background-color:#112B3C; text-align: center; font-weight:bolder; color:#FFFFFF;">Totales</td>
+                <td id="tdPropuestaB" style="background-color:#205375; text-align: center; font-weight:bolder; color:#FFFFFF;">Totales</td>
+                <td id="tdPropuestaC" style="background-color:#F66B0E; text-align: center; font-weight:bolder; color:#FFFFFF;">Totales</td>
             </tr>
             @if($propuesta["descuento"]["porcentaje"] > 0)
                 <tr>
-                    <td class="title-tab-comparativa" style="background-color:#2593F0; color:white;">
+                    <td class="title-tab-comparativa" style="background-color:#2593F0; color:white; text-align: center;">
                         Total s/Descuento
                     </td>
                     <td id="tdCostoSinDescuentoA" class="text-tab-comparativa"
-                        style="background-color:#2593F0; color:white;">
+                        style="background-color:#2593F0; text-align: center; color:white;">
                         ${{ number_format($combinacionEconomica["descuento"]["precioSinDescuento"],2) }} USD
                     </td>
                     <td id="tdCostoSinDescuentoB" class="text-tab-comparativa"
-                        style="background-color:#2593F0; color:white;">
+                        style="background-color:#2593F0; text-align: center; color:white;">
                         ${{ number_format($combinacionMediana["descuento"]["precioSinDescuento"],2) }} USD
                     </td>
                     <td id="tdCostoSinDescuentoC" class="text-tab-comparativa"
-                        style="background-color:#2593F0; color:white;">
+                        style="background-color:#2593F0; text-align: center; color:white;">
                         ${{ number_format($combinacionOptima["descuento"]["precioSinDescuento"],2) }} USD
                     </td>
                 </tr>
                 <tr>
-                    <td class="title-tab-comparativa" style="background-color:green; color:white;">
+                    <td class="title-tab-comparativa" style="background-color:green; text-align: center; color:white;">
                         Descuento (<strong>{{ $propuesta["descuento"]["porcentaje"] }}%</strong>)
                     </td>
-                    <td id="tdDescuentoA" class="text-tab-comparativa" style="background-color:green; color:white;">
+                    <td id="tdDescuentoA" class="text-tab-comparativa" style="background-color:green; text-align: center; color:white;">
                         ${{ number_format($combinacionEconomica["descuento"]["descuento"],2) }} USD
                     </td>
-                    <td id="tdDescuentoB" class="text-tab-comparativa" style="background-color:green; color:white;">
+                    <td id="tdDescuentoB" class="text-tab-comparativa" style="background-color:green; text-align: center; color:white;">
                         ${{ number_format($combinacionMediana["descuento"]["descuento"],2) }} USD
                     </td>
-                    <td id="tdDescuentoC" class="text-tab-comparativa" style="background-color:green; color:white;">
+                    <td id="tdDescuentoC" class="text-tab-comparativa" style="background-color:green; text-align: center; color:white;">
                         ${{ number_format($combinacionOptima["descuento"]["descuento"],2) }} USD
                     </td>
                 </tr>
             @endif
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     Total s/IVA
                 </td>
-                <td id="tdSubtotalA" class="text-tab-comparativa">
+                <td id="tdSubtotalA" class="text-tab-comparativa" style="text-align: center;">
                     ${{ number_format($combinacionEconomica["totales"]["precio"],2) }} USD
                 </td>
-                <td id="tdSubtotalB" class="text-tab-comparativa">
+                <td id="tdSubtotalB" class="text-tab-comparativa" style="text-align: center;">
                     ${{ number_format($combinacionMediana["totales"]["precio"],2) }} USD
                 </td>
-                <td id="tdSubtotalC" class="text-tab-comparativa">
+                <td id="tdSubtotalC" class="text-tab-comparativa" style="text-align: center;">
                     ${{ number_format($combinacionOptima["totales"]["precio"],2) }} USD
                 </td>
             </tr>
             <tr>
-                <td class="title-tab-comparativa">
+                <td class="title-tab-comparativa" style="text-align: center;">
                     Total c/IVA
                 </td>
-                <td id="tdTotalA" class="text-tab-comparativa">
+                <td id="tdTotalA" class="text-tab-comparativa" style="text-align: center;">
                     ${{ number_format($combinacionEconomica["totales"]["precioMasIVA"],2) }} USD
                 </td>
-                <td id="tdTotalB" class="text-tab-comparativa">
+                <td id="tdTotalB" class="text-tab-comparativa" style="text-align: center;">
                     ${{ number_format($combinacionMediana["totales"]["precioMasIVA"],2) }} USD
                 </td>
-                <td id="tdTotalC" class="text-tab-comparativa">
+                <td id="tdTotalC" class="text-tab-comparativa" style="text-align: center;">
                     ${{ number_format($combinacionOptima["totales"]["precioMasIVA"],2) }} USD
                 </td>
             </tr>
@@ -1001,12 +1020,12 @@
 
         <table id="nota-costo-watt" class="table-comparative" style="margin-top:25px;">
             <tr>
-                <td style="background-color:#9AC5E7;">
+                <td style="background-color:#9AC5E7; text-align: center;">
                     <p style="font-size:11px; font-weight:bold;">NOTA IMPORTANTE</p>
                 </td>
             </tr>
             <tr>
-                <td>
+                <td style="text-align: center;">
                     <p style="font-size:9px;">
                         Entre los costos, lo más importante a revisar es el <strong style="background-color:#ECFF00;">costo
                             por watt</strong> del proyecto, pues va en función del costo del proyecto y la potencia
@@ -1052,7 +1071,7 @@
                             <th style="height:16px;">
                                 <p style="font-size:14px; margin-left:6px; margin-right:6px;">Pago de contado</p>
                             </th>
-                            <td style="background-color:#03BABE;">
+                            <td style="background-color:#4474C2;">
                                 <p style="font-size:14px; margin-left:6px; margin-right:6px;">
                                     ${{ number_format($propuesta["totales"]["precioMXNConIVA"], 2) }}
                                 </p>
@@ -1066,7 +1085,7 @@
                             <th style="height:16px;">
                                 <p style="font-size:14px; margin-left:6px; margin-right:6px;">Ahorro mensual de luz</p>
                             </th>
-                            <td style="background-color:#03BABE;">
+                            <td style="background-color:#4474C2;">
                                 <p style="font-size:14px; margin-left:6px; margin-right:6px;">
                                     ${{ number_format($propuesta["roi"]["ahorro"]["ahorroMensualEnPesosMXN"] ,2) }}
                                 </p>
@@ -1080,7 +1099,7 @@
                             <th style="height:16px;">
                                 <p style="font-size:14px; margin-left:6px; margin-right:6px;">Retorno de inversión</p>
                             </th>
-                            <td style="background-color:#FFB500;">
+                            <td style="background-color:#4474C2;">
                                 <p style="font-size:18px; margin-left:6px; margin-right:6px; font-weight:bolder;">
                                     {{ $propuesta["roi"]["roiEnAnios"] }} año(s)
                                 </p>
@@ -1094,11 +1113,11 @@
         <table class="tabFinanciamiento">
             <tr>
                 <th>Tarjeta de credito</th>
-                <th style="background-color: #F5B070;">3 meses</th>
-                <th style="background-color: #F5B070;">6 meses</th>
-                <th style="background-color: #F5B070;">9 meses</th>
-                <th style="background-color: #F5B070;">12 meses</th>
-                <th style="background-color: #F5B070;">18 meses</th>
+                <th style="background-color: #4474C2;">3 meses</th>
+                <th style="background-color: #4474C2;">6 meses</th>
+                <th style="background-color: #4474C2;">9 meses</th>
+                <th style="background-color: #4474C2;">12 meses</th>
+                <th style="background-color: #4474C2;">18 meses</th>
             </tr>
             <tr>
                 <th> Pago mensual</th>
@@ -1118,9 +1137,9 @@
         <table class="tabFinanciamiento">
             <tr>
                 <th>Financiamiento</th>
-                <th style="background-color: #F5B070;">15%</th>
-                <th style="background-color: #F5B070;">35%</th>
-                <th style="background-color: #F5B070;">50%</th>
+                <th style="background-color: #4474C2;">15%</th>
+                <th style="background-color: #4474C2;">35%</th>
+                <th style="background-color: #4474C2;">50%</th>
             </tr>
             <tr>
                 <th>Enganche</th>
@@ -1136,9 +1155,9 @@
         <table id="tabFinanciamient" class="tabFinanciamiento">
             <tr>
                 <th>Pagos mensuales</br> por plazo</th>
-                <th style="background-color: #F5B070;">15%</th>
-                <th style="background-color: #F5B070;">35%</th>
-                <th style="background-color: #F5B070;">50%</th>
+                <th style="background-color: #4474C2;">15%</th>
+                <th style="background-color: #4474C2;">35%</th>
+                <th style="background-color: #4474C2;">50%</th>
             </tr>
             @for($x = 12; $x <= 84; $x = $x + 12)
                 <tr>
@@ -1162,7 +1181,7 @@
                         @endswitch
 
                         @if($propuesta["financiamiento"]["_pagosMensualesPorPlazo"][$x][$porcent] > $propuesta["roi"]["ahorro"]["ahorroMensualEnPesosMXN"] && $propuesta["financiamiento"]["_pagosMensualesPorPlazo"][$x][$porcent] < ($propuesta["roi"]["ahorro"]["ahorroMensualEnPesosMXN"] * 1.10))
-                            <td id="amarillo" style="background-color:#E0D30C">
+                            <td id="amarillo" style="background-color:#FAE610">
                                 ${{ number_format($propuesta["financiamiento"]["_pagosMensualesPorPlazo"][$x][$porcent], 2) }}
                             </td>
                         @elseif($propuesta["financiamiento"]["_pagosMensualesPorPlazo"][$x][$porcent] <= $propuesta["roi"]["ahorro"]["ahorroMensualEnPesosMXN"])
@@ -1170,7 +1189,7 @@
                                 ${{ number_format($propuesta["financiamiento"]["_pagosMensualesPorPlazo"][$x][$porcent], 2) }}
                             </td>
                         @else
-                            <td id="normal" style="background-color:#3A565E">
+                            <td id="normal" style="background-color:#808D99">
                                 ${{ number_format($propuesta["financiamiento"]["_pagosMensualesPorPlazo"][$x][$porcent], 2) }}
                             </td>
                         @endif
@@ -1238,7 +1257,7 @@
                 <div style="margin-left:-55px; margin-right:55px;">
                     <p style="text-align: center; font-weight: bold;">EL SISTEMA FOTOVOLTAICO PRESENTADO EN ESTA
                         PROPUESTA, EQUIVALE A <strong
-                            style="color:#8AADCE;">{{ $propuesta["power"]["objImpactoAmbiental"]["numeroArboles"] }}</strong>
+                            style="color:#082567;">{{ $propuesta["power"]["objImpactoAmbiental"]["numeroArboles"] }}</strong>
                         ÁRBOLES PLANTADOS AL AÑO.</p>
                     <img width="25%" height="130px"
                          src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/pdf/complementos/tree.png'))) }}"/>

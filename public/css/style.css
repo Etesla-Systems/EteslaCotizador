@@ -552,6 +552,17 @@ body.loading .loading-spinner{
     background-color: steelblue !important;
 }
 
+.celNaranja
+{
+    background-color: #FF8920 !important;
+    border-right-width: 7px;
+}
+
+.celNaranja:hover
+{
+    background-color: #FFA765 !important;
+}
+
 .celGris
 {
     background-color: #343E36 !important;

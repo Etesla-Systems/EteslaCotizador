@@ -131,19 +131,19 @@ class PDFController extends Controller
                         [
                             "label" => "Consumo s/paneles [Bimestral]",
                             "data" => $consumoActualBim,
-                            "backgroundColor" => 'rgb(204, 15, 3)',
+                            "backgroundColor" => 'rgb(255, 137, 32)',
                             "borderWidth" => 1
                         ],
                         [
                             "label" => "Generacion [Bimestral]",
                             "data" => $generacionBim,
-                            "backgroundColor" => 'rgb(8, 37, 103)',
+                            "backgroundColor" => 'rgb(122, 179, 23)',
                             "borderWidth" => 1
                         ],
                         [
                             "label" => "Nuevo consumo c/paneles [Bimestral]",
                             "data" => $consumoNuevoBim,
-                            "backgroundColor" => 'rgb(122, 179, 23)',
+                            "backgroundColor" => 'rgb(224, 13, 32)',
                             "borderWidth" => 1
                         ]
                     ]
@@ -181,13 +181,13 @@ class PDFController extends Controller
                         [
                             "label" => "Consumo s/paneles [Bimestral]",
                             "data" => $consumosEconActualesBim,
-                            "backgroundColor" => 'rgb(204, 15, 3)',
+                            "backgroundColor" => 'rgb(255, 137, 32)',
                             "borderWidth" => 1
                         ],
                         [
                             "label" => "Consumo c/paneles [Bimestral]",
                             "data" => $consumosEconNuevosBim,
-                            "backgroundColor" => 'rgb(122, 179, 23)',
+                            "backgroundColor" => 'rgb(224, 13, 32)',
                             "borderWidth" => 1
                         ]
                     ]
