@@ -64,7 +64,7 @@ async function calcularPropuestaBT(e, dataEdite){ ///Main()
             }
 
             /* Enviar Propuesta - Manipular resultado */
-            await pintarVistaDeResultados();
+            //await pintarVistaDeResultados();
 
             _combinaciones = await obtenerCombinaciones(data);
             vaciarCombinacionesEnModal(_combinaciones); // :void()
@@ -104,7 +104,7 @@ async function calcularPropuestaBT(e, dataEdite){ ///Main()
     }
 }
 
-function pintarVistaDeResultados(){
+/*function pintarVistaDeResultados(){
     new Promise((resolve, reject) => {
         $.ajax({
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
@@ -128,7 +128,7 @@ function pintarVistaDeResultados(){
                 alert(error);
             });
     });
-}
+}*/
 
 async function calcularAgregados(){
     let ResultViaticos = {};
@@ -705,12 +705,9 @@ async function mostrarPanelSeleccionado(){
 
         /* [Viaticos] */
         let _viaticos = await calcularViaticosBT(InversorCostoBeneficio);
-        console.log("CalcularViaticosBT");
-        console.log(_viaticos); //si lo hace
 
         mostrarRespuestaViaticos(_viaticos);//:void()
-        console.log("Mostrar respuesta viaticos 1");
-        console.log(_viaticos);
+
     }
     else{
         $('#listInversores').prop("disabled", true);
