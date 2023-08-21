@@ -338,7 +338,7 @@
                     <td></td>
                 @endif
                 @if($descuento["porcentaje"] >= 1)
-                    <td id="tdDescuento" style="background-color:green;">
+                    <td id="tdDescuento" style="background-color:#7ab317;">
                         <p style="text-align:center; color:white; font-weight:bolder; font-size:12px;">
                             Descuento ({{ $descuento["porcentaje"] }}%)
                         </p>
