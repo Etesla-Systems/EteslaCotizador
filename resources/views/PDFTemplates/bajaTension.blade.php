@@ -438,17 +438,17 @@
         <tr>
             <td id="imgLogoPanel" align="center" style="border: none;">
                 @php($image = $paneles['vMarca'] . '.png')
-                <img style="width: 22%;  height: auto;"
+                <img style="width: 15%;  height: auto;"
                      src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/equipos/logos/panel/' . $image))) }}">
             </td>
             <td id="imgLogoInversor" align="center" style="border: none;">
                 @php($image = $inversores['vMarca'] . '.png')
-                <img style="width: 22%;  height: auto;"
+                <img style="width: 15%;  height: auto;"
                      src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/equipos/logos/inversor/' . $image))) }}">
             </td>
             <td id="imgLogoInversor" align="center" style="border: none;">
                 @php($image = $estructura["_estructuras"]['vMarca'] . '.png')
-                <img style="width: 22%;  height: auto;"
+                <img style="width: 15%;  height: auto;"
                      src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/equipos/logos/estructura/' . $image))) }}">
             </td>
         </tr>

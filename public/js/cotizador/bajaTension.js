@@ -63,8 +63,8 @@ async function calcularPropuestaBT(e, dataEdite){ ///Main()
                 throw 'ERROR! La -data- de la Propuesta se encuentra vacia y es imposible cotizar';
             }
 
-            /* Enviar Propuesta - Manipular resultado
-            await pintarVistaDeResultados(); */
+            /* Enviar Propuesta - Manipular resultado */
+            await pintarVistaDeResultados();
 
             _combinaciones = await obtenerCombinaciones(data);
             vaciarCombinacionesEnModal(_combinaciones); // :void()
@@ -85,6 +85,9 @@ async function calcularPropuestaBT(e, dataEdite){ ///Main()
             dataPropuesta.porcentajeDescuento = dataEdited.porcentajeDescuento;
             data = dataPropuesta;
 
+            console.log("Data editada");
+            console.log(data);
+
             ///Modificar las combinaciones
             _combinaciones = await obtenerCombinaciones(data);
             vaciarCombinacionesEnModal(_combinaciones); // :void()
@@ -92,12 +95,39 @@ async function calcularPropuestaBT(e, dataEdite){ ///Main()
             ///Enviar propuesta AJUSTADA
             _cotizacionAjustada = await enviarCotizacion(data);
             vaciarRespuestaPaneles(_cotizacionAjustada);
+
         }
     }
     catch(error){
         console.log(error);
         alert(error);
     }
+}
+
+function pintarVistaDeResultados(){
+    new Promise((resolve, reject) => {
+        $.ajax({
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            type: 'GET',
+            url: '/resultados',
+            success: resultView => {
+                resolve(resultView);
+            },
+            error: error => {
+                error = 'Al parecer hubo un error al intentar cargar vista de resultados';
+                reject(error);
+            }
+        })
+            .then(vistaResultados => {
+                $('#divCotizacionBajaTension').css("display","none");
+                $('#divBtnCalcularBT').css("display","none");
+                $('#divResultCotizacionBT').css("display","");
+                $('#divResult_bt').html(vistaResultados);
+            })
+            .catch(error => {
+                alert(error);
+            });
+    });
 }
 
 async function calcularAgregados(){
@@ -616,6 +646,20 @@ async function mostrarPanelSeleccionado(){
     limpiarCampos();
     limpiarGrafico();
 
+    //Deshabiltar las recomendaciones si se selecciona un panel
+    var listPaneles = document.getElementById("listPaneles");
+    var selectedValue = listPaneles.value;
+
+    // Obtén el primer select
+    var ddlCombinaciones = document.getElementById("ddlCombinaciones");
+
+    // Habilita o deshabilita el primer select según la selección del segundo
+    if (selectedValue !== "") {
+        ddlCombinaciones.disabled = true; // Bloquear el primer select
+    } else {
+        ddlCombinaciones.disabled = false; // Desbloquear el primer select
+    }
+
     if(valueDDLPaneles !== "-1" || typeof valueDDLPaneles === "undefined"){
         /*#region Formating _respuestaPaneles*/
         let _paneles = sessionStorage.getItem('_respPaneles');
@@ -674,8 +718,19 @@ async function mostrarPanelSeleccionado(){
 }
 
 function limpiarCampos(){
-    $('.inpAnsw').val("");
-    $('.tdAnsw').text("");
+
+    $('#tdPanelPotenciaReal').text("");
+    $('#tdCostoWatt').text("");
+    $('#tdPanelModelo').text("");
+    $('#tdPanelPotencia').text("");
+    $('#tdPanelCantidad').text("");
+    $('#tdInversorModelo').text("");
+    $('#tdInversorPotencia').text("");
+    $('#tdInversorCantidad').text("");
+    $('#tdSubtotalUSD').text("");
+    $('#tdTotalUSD').text("");
+    $('#tdSubtotalMXN').text("");
+    $('#tdTotalMXN').text("");
 }
 
 function mostrarRespuestaConsumos(Consumo){
@@ -867,7 +922,8 @@ function calcularViaticosBT(objInversor){
     let ssinversor = {};
     let route = '';
     let consumptions = [];
-    let descuento = 0, aumento = 0;
+    let descuento = $('#inpSliderDescuento').val() || 0;
+    let aumento = $('#inpSliderAumento').val() || 0;
 
     let bndPropuestaNueva = sessionStorage.getItem("bndPropuestaEditada"); //Bandra Propuesta Nueva
     let tipoCotizador = sessionStorage.getItem('tarifaMT'); /*[bajatension || mediatension]*/
@@ -1274,29 +1330,30 @@ function activarDesactivarBotones(equipo,habilidad){
 }
 
 async function modificarPropuesta(){
+
     let tipoCotizacion = sessionStorage.getItem('tarifaMT');
 
     //Modificar sessionStorage de "propuestaNueva" o "propuestaModificada" *0 = Nueva* *1 = Modificada*
-    sessionStorage.removeItem("bndPropuestaEditada");
+    /*sessionStorage.removeItem("bndPropuestaEditada");
     sessionStorage.setItem("bndPropuestaEditada", 1);
 
     //Se cambia de estado los dropDownList de Equipos [ Paneles, Inversores ]
     $('listPaneles').val('-1');
-    $('listInversores').val('-1');
+    $('listInversores').val('-1');*/
 
     // //Se limpian inputs de resultados
     limpiarCampos();
 
     // //Cachar los valores de los porcentajes / panel de ajuste
-    let porcentajePropuesta = parseFloat($('#inpSliderPropuesta').val()) || 0;
+    /*let porcentajePropuesta = parseFloat($('#inpSliderPropuesta').val()) || 0;
     let porcentajeDescuento = parseFloat($('#inpSliderDescuento').val()) || 0;
     console.log("Descuento");
     console.log(porcentajeDescuento);
     let porcentajeAumento = parseFloat($('#inpSliderAumento').val()) || 0;
     console.log("Aumento");
-    console.log(porcentajeAumento);
+    console.log(porcentajeAumento);*/
 
-    // //Se guarda el porcentaje de descuento, para su futura implementacion (ya que el descuento se aplica hasta el step:"cobrar_viaticos")
+    /*// //Se guarda el porcentaje de descuento, para su futura implementacion (ya que el descuento se aplica hasta el step:"cobrar_viaticos")
     sessionStorage.removeItem("descuentoPropuesta");
     sessionStorage.setItem("descuentoPropuesta",porcentajeDescuento);
     sessionStorage.removeItem("aumentoPropuesta");
@@ -1306,11 +1363,11 @@ async function modificarPropuesta(){
     let dataPorcentajes = { porcentajePropuesta, porcentajeDescuento, porcentajeAumento };
 
     console.log(dataPorcentajes);
-    console.log(tipoCotizacion);
+    console.log(tipoCotizacion);*/
 
     // //Se realiza nuevamente la propuesta
     if(tipoCotizacion === "null" || typeof tipoCotizacion === 'undefined'){ ///BajaTension
-        await calcularPropuestaBT(null, dataPorcentajes);
+        await mostrarPanelSeleccionado();
     }
     else{ ///MediaTension
         await calcularPropuestaMT(dataPorcentajes);
