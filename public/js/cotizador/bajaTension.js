@@ -1342,15 +1342,11 @@ async function modificarPropuesta(){
     limpiarCampos();
 
     // //Cachar los valores de los porcentajes / panel de ajuste
-    /*let porcentajePropuesta = parseFloat($('#inpSliderPropuesta').val()) || 0;
+    let porcentajePropuesta = parseFloat($('#inpSliderPropuesta').val()) || 0;
     let porcentajeDescuento = parseFloat($('#inpSliderDescuento').val()) || 0;
-    console.log("Descuento");
-    console.log(porcentajeDescuento);
     let porcentajeAumento = parseFloat($('#inpSliderAumento').val()) || 0;
-    console.log("Aumento");
-    console.log(porcentajeAumento);*/
 
-    /*// //Se guarda el porcentaje de descuento, para su futura implementacion (ya que el descuento se aplica hasta el step:"cobrar_viaticos")
+    // //Se guarda el porcentaje de descuento, para su futura implementacion (ya que el descuento se aplica hasta el step:"cobrar_viaticos")
     sessionStorage.removeItem("descuentoPropuesta");
     sessionStorage.setItem("descuentoPropuesta",porcentajeDescuento);
     sessionStorage.removeItem("aumentoPropuesta");
@@ -1358,13 +1354,16 @@ async function modificarPropuesta(){
 
     // //Se arma la data para editar la propuesta
     let dataPorcentajes = { porcentajePropuesta, porcentajeDescuento, porcentajeAumento };
-
-    console.log(dataPorcentajes);
-    console.log(tipoCotizacion);*/
+        console.log("Prueba");
 
     // //Se realiza nuevamente la propuesta
     if(tipoCotizacion === "null" || typeof tipoCotizacion === 'undefined'){ ///BajaTension
-        await mostrarPanelSeleccionado();
+
+        if(porcentajeDescuento > 0)
+        {
+            await mostrarPanelSeleccionado();
+        }
+        await calcularPropuestaBT(null, dataPorcentajes);
     }
     else{ ///MediaTension
         await calcularPropuestaMT(dataPorcentajes);
